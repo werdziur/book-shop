@@ -1,0 +1,48 @@
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+	font-size: 1.6rem;
+}
+
+//HEADER
+
+.header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 2em;
+	height: 65vh;
+	text-align: center;
+	background-position: center;
+	background-size: cover;
+	background-image: radial-gradient(circle, rgba(153, 88, 42, 0.54) 0%, rgba(67, 40, 24, 0.83) 87%), url(../img/bg1-small.jpg);
+	background-attachment: scroll;
+    color: antiquewhite;
+
+    &__heading {
+        font-size: 4.8rem;
+        
+    }
+
+    &__text {
+        padding-top: 2em;
+        font-size: 2.5rem;
+        font-family: 'Dancing Script', cursive;
+        font-weight: 400;
+    }
+    
+}
