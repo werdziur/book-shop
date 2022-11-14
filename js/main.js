@@ -17,17 +17,16 @@ function appendData(data) {
 		const divBook = document.createElement('div')
 		const bookAuthor = document.createElement('p')
 		bookAuthor.innerHTML = `Author: ${data[book].author}`
+        const bookImage = document.createElement('img')
+        bookImage.setAttribute('src',data[book].imageLink)
 		const bookTitle = document.createElement('p')
 		bookTitle.innerHTML = `Title: ${data[book].title}`
 		const bookPrice = document.createElement('p')
-		bookPrice.innerHTML = `Price: ${data[book].price}`
+		bookPrice.innerHTML = `Price: $${data[book].price}`
 		const bookDescription = document.createElement('p')
 		bookDescription.innerHTML = `Description: ${data[book].description}`
-		divBook.appendChild(bookAuthor)
-		divBook.appendChild(bookTitle)
-		divBook.appendChild(bookPrice)
-		divBook.appendChild(bookDescription)
 
+		divBook.append(bookAuthor, bookImage, bookTitle, bookPrice, bookDescription)
 		fragmentBook.appendChild(divBook)
 		main.appendChild(fragmentBook)
 		divBook.classList.add('main-container__book')
@@ -57,8 +56,6 @@ main.classList.add('main-container')
 
 addHeader.appendChild(headerH1)
 headerH1.appendChild(headerText)
-fragment.appendChild(addNav)
-fragment.appendChild(addHeader)
-fragment.appendChild(main)
+fragment.append(addNav, addHeader, main)
 
 document.body.prepend(fragment)
