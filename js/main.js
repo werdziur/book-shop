@@ -18,7 +18,6 @@ function appendData(data) {
 		divMainContainer.classList.add('main-container__books')
 		const divBook = document.createElement('div')
 		divBook.classList.add('main-container__card')
-
 		const bookImage = document.createElement('img')
 		bookImage.setAttribute('src', data[book].imageLink)
 		bookImage.classList.add('bookImg')
@@ -31,20 +30,24 @@ function appendData(data) {
 		const bookPrice = document.createElement('p')
 		bookPrice.innerHTML = `Price: $${data[book].price}`
 		bookPrice.classList.add('price')
+		const background = document.createElement('div')
+		background.classList.add('background')
+
 		const bookDescription = document.createElement('p')
 		bookDescription.innerHTML = `${data[book].description}`
-        bookDescription.classList.add('description')
+		bookDescription.classList.add('description')
 
 		const buttonBuy = document.createElement('button')
 		buttonBuy.innerHTML = 'Buy'
-		buttonBuy.classList.add('button-buy')
+		buttonBuy.classList.add('main-container__button-buy')
 		const buttonMoreInfo = document.createElement('button')
-		buttonMoreInfo.classList.add('button-more')
+		buttonMoreInfo.classList.add('main-container__button-more')
 		buttonMoreInfo.innerHTML = 'Show more'
 
-		divMainContainer.append(divBook, buttonBuy, buttonMoreInfo)
-		divBook.append(bookImage, bookAuthor, bookTitle, bookDescription, bookPrice)
-		fragmentBook.appendChild(divMainContainer)
+		background.append(bookDescription)
+		divMainContainer.append(background, divBook, buttonBuy, buttonMoreInfo)
+		divBook.append(bookImage, bookAuthor, bookTitle, bookPrice)
+		fragmentBook.append(divMainContainer)
 		main.appendChild(fragmentBook)
 	}
 }

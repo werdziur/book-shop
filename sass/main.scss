@@ -50,15 +50,25 @@ body {
 	margin: 0 auto;
 	width: 100%;
 	max-width: 1200px;
-	padding: 4em 0.5em 4em 0.5em;
+	padding: 4em 0.7em 4em 0.7em;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
 
 	&__books {
 		display: flex;
 		flex-direction: column;
+		width: 100%;
+		position: relative;
+		margin: 10px 0 10px 0;
 	}
 
 	&__card {
 		position: relative;
+		height: 48em;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -67,11 +77,14 @@ body {
 		background-color: #bb9457;
 		color: #432818;
 		border-radius: 10px;
-		padding: 0.2em 0 1em 0;
+		padding: 0.3em 0 5em 0;
+		box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+		z-index: 10;
+		margin: 10px;
 
 		.bookImg {
 			width: 25em;
-			height: 30em;
+			height: 35em;
 			padding: 2em;
 		}
 
@@ -85,7 +98,7 @@ body {
 		}
 
 		.title {
-			font-size: 1.2em;
+			font-size: 1.3em;
 		}
 
 		.description {
@@ -93,8 +106,70 @@ body {
 		}
 
 		.price {
-			font-size: 1.5em;
+			font-size: 1.6em;
 			font-weight: 700;
+			padding: 15px;
 		}
 	}
+
+	&__button-more {
+		width: 8em;
+		height: 3em;
+		border-radius: 30px;
+		background-color: #895737;
+		color: antiquewhite;
+		font-size: 1.8rem;
+		padding: 0.5em 0.2em 0.5em 0.2em;
+		border: #432818 1px solid;
+		text-transform: uppercase;
+		font-weight: 400;
+		position: absolute;
+		bottom: 40px;
+		left: 40px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		box-shadow: 5px 5px 10px rgba(#432818, 0.7);
+		cursor: pointer;
+		z-index: 10000;
+	}
+
+	&__button-buy {
+		width: 8em;
+		height: 3em;
+		border-radius: 30px;
+		background-color: #780116;
+		color: antiquewhite;
+		font-size: 1.8rem;
+		padding: 0.5em 0.2em 0.5em 0.2em;
+		border: #432818 1px solid;
+		text-transform: uppercase;
+		font-weight: 400;
+		position: absolute;
+		bottom: 40px;
+		right: 40px;
+		box-shadow: 5px 5px 10px rgba(#432818, 0.7);
+		cursor: pointer;
+		z-index: 10000;
+	}
+}
+
+.background {
+	display: flex;
+	justify-content: flex-end;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	color: whitesmoke;
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.95);
+	z-index: 999;
+	margin: 10px;
+	border-radius: 10px;
+	align-items: center;
+	padding: 3em;
+	line-height: 2em;
+	font-size: 1.5em;
+	clip-path: circle(50% at 50% 90%);
 }
