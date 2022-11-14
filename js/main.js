@@ -14,22 +14,38 @@ function appendData(data) {
 	let main = document.querySelector('.main-container')
 	for (let book in data) {
 		const fragmentBook = new DocumentFragment()
+		const divMainContainer = document.createElement('div')
+		divMainContainer.classList.add('main-container__books')
 		const divBook = document.createElement('div')
+		divBook.classList.add('main-container__card')
+
+		const bookImage = document.createElement('img')
+		bookImage.setAttribute('src', data[book].imageLink)
+		bookImage.classList.add('bookImg')
 		const bookAuthor = document.createElement('p')
-		bookAuthor.innerHTML = `Author: ${data[book].author}`
-        const bookImage = document.createElement('img')
-        bookImage.setAttribute('src',data[book].imageLink)
+		bookAuthor.innerHTML = `${data[book].author}`
+		bookAuthor.classList.add('author')
 		const bookTitle = document.createElement('p')
-		bookTitle.innerHTML = `Title: ${data[book].title}`
+		bookTitle.innerHTML = `${data[book].title}`
+		bookTitle.classList.add('title')
 		const bookPrice = document.createElement('p')
 		bookPrice.innerHTML = `Price: $${data[book].price}`
+		bookPrice.classList.add('price')
 		const bookDescription = document.createElement('p')
-		bookDescription.innerHTML = `Description: ${data[book].description}`
+		bookDescription.innerHTML = `${data[book].description}`
+        bookDescription.classList.add('description')
 
-		divBook.append(bookAuthor, bookImage, bookTitle, bookPrice, bookDescription)
-		fragmentBook.appendChild(divBook)
+		const buttonBuy = document.createElement('button')
+		buttonBuy.innerHTML = 'Buy'
+		buttonBuy.classList.add('button-buy')
+		const buttonMoreInfo = document.createElement('button')
+		buttonMoreInfo.classList.add('button-more')
+		buttonMoreInfo.innerHTML = 'Show more'
+
+		divMainContainer.append(divBook, buttonBuy, buttonMoreInfo)
+		divBook.append(bookImage, bookAuthor, bookTitle, bookDescription, bookPrice)
+		fragmentBook.appendChild(divMainContainer)
 		main.appendChild(fragmentBook)
-		divBook.classList.add('main-container__book')
 	}
 }
 

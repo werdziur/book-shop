@@ -14,6 +14,7 @@ html {
 body {
 	font-family: 'Raleway', sans-serif;
 	font-size: 1.6rem;
+	background-color: #ffe6a7;
 }
 
 //HEADER
@@ -49,4 +50,51 @@ body {
 	margin: 0 auto;
 	width: 100%;
 	max-width: 1200px;
+	padding: 4em 0.5em 4em 0.5em;
+
+	&__books {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__card {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin: 10px;
+		background-color: #bb9457;
+		color: #432818;
+		border-radius: 10px;
+		padding: 0.2em 0 1em 0;
+
+		.bookImg {
+			width: 25em;
+			height: 30em;
+			padding: 2em;
+		}
+
+		p {
+			padding: 0.5em;
+		}
+
+		.author {
+			font-weight: 700;
+			font-size: 1.3em;
+		}
+
+		.title {
+			font-size: 1.2em;
+		}
+
+		.description {
+			display: none;
+		}
+
+		.price {
+			font-size: 1.5em;
+			font-weight: 700;
+		}
+	}
 }
