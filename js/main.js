@@ -36,13 +36,24 @@ function appendData(data) {
 		const bookDescription = document.createElement('p')
 		bookDescription.innerHTML = `${data[book].description}`
 		bookDescription.classList.add('description')
-
+		const buttonMoreInfo = document.createElement('button')
 		const buttonBuy = document.createElement('button')
 		buttonBuy.innerHTML = 'Buy'
+		buttonBuy.setAttribute('type', 'button')
 		buttonBuy.classList.add('main-container__button-buy')
-		const buttonMoreInfo = document.createElement('button')
-		buttonMoreInfo.classList.add('main-container__button-more')
+
+		buttonMoreInfo.classList.add('main-container__button-more', 'description-button')
 		buttonMoreInfo.innerHTML = 'Show more'
+		buttonMoreInfo.setAttribute('type', 'button')
+
+		buttonMoreInfo.addEventListener('click', e => {
+			background.classList.toggle('btn-details')
+			if (background.classList.contains('btn-details')) {
+				buttonMoreInfo.innerHTML = 'Close X'
+			} else {
+				buttonMoreInfo.innerHTML = 'Show More'
+			}
+		})
 
 		background.append(bookDescription)
 		divMainContainer.append(background, divBook, buttonBuy, buttonMoreInfo)
@@ -53,6 +64,8 @@ function appendData(data) {
 }
 
 appendData()
+
+//nav and header
 
 const fragment = new DocumentFragment()
 
@@ -78,3 +91,18 @@ headerH1.appendChild(headerText)
 fragment.append(addNav, addHeader, main)
 
 document.body.prepend(fragment)
+
+//book show more button animation
+
+// function addDescription() {
+// 	const btnsMore = document.getElementsByClassName('description-button')
+// 	// console.log(btnsMore)
+// 	for (btn of btnsMore) {
+// 		btn.addEventListener('click', (e) => {
+// 			btn.innerText('tak')
+//             console.log(e)
+// 		})
+// 	}
+// }
+
+// addDescription()
