@@ -170,12 +170,20 @@ body {
 	line-height: 2em;
 	font-size: 1.5em;
 	clip-path: circle(0 at 50% 90%);
+    transition: clip-path .5s;
 }
-
-
 
 .btn-details {
 	clip-path: circle(120% at 50% 90%);
+}
+
+//footer
+
+.footer {
+    height: 50rem;
+    background-color: #432818;
+    padding: 3em;
+    margin-top: 3em;
 }
 
 //MEDIA QUERIES
@@ -276,11 +284,13 @@ body {
 			height: 65rem;
 			width: 45rem;
 			margin: 15px;
+            
 		}
 
 		&__card {
 			height: 65rem;
 			width: 45rem;
+            padding-top: 2em;
 
 			.bookImg {
 				width: 20em;
@@ -314,7 +324,7 @@ body {
 			width: 8em;
 			height: 3em;
 			font-size: 1.9rem;
-            bottom: 20px;
+            bottom: 15px;
 			left: 25px;
 		}
 
@@ -322,7 +332,7 @@ body {
 			width: 8em;
 			height: 3em;
 			font-size: 1.9rem;
-			bottom: 20px;
+			bottom: 15px;
 			right: 25px;
 		}
 	}

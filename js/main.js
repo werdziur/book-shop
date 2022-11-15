@@ -16,8 +16,11 @@ function appendData(data) {
 		const fragmentBook = new DocumentFragment()
 		const divMainContainer = document.createElement('div')
 		divMainContainer.classList.add('main-container__books')
+
+        //book div
 		const divBook = document.createElement('div')
 		divBook.classList.add('main-container__card')
+
 		const bookImage = document.createElement('img')
 		bookImage.setAttribute('src', data[book].imageLink)
 		bookImage.classList.add('bookImg')
@@ -32,16 +35,18 @@ function appendData(data) {
 		bookPrice.classList.add('price')
 		const background = document.createElement('div')
 		background.classList.add('background')
-
 		const bookDescription = document.createElement('p')
 		bookDescription.innerHTML = `${data[book].description}`
 		bookDescription.classList.add('description')
+
+        //button buy
 		const buttonMoreInfo = document.createElement('button')
 		const buttonBuy = document.createElement('button')
 		buttonBuy.innerHTML = 'Buy'
 		buttonBuy.setAttribute('type', 'button')
 		buttonBuy.classList.add('main-container__button-buy')
 
+        //button more background
 		buttonMoreInfo.classList.add('main-container__button-more', 'description-button')
 		buttonMoreInfo.innerHTML = 'Show more'
 		buttonMoreInfo.setAttribute('type', 'button')
@@ -69,8 +74,12 @@ appendData()
 
 const fragment = new DocumentFragment()
 
+//nav
+
 const addNav = document.createElement('nav')
 addNav.classList.add('navigation')
+
+//header
 
 const addHeader = document.createElement('header')
 addHeader.classList.add('header')
@@ -83,26 +92,32 @@ const headerText = document.createElement('p')
 headerText.innerText = 'A magical place for all bookworms'
 headerText.classList.add('header__text')
 
+//main
+
 const main = document.createElement('main')
 main.classList.add('main-container')
 
+//footer
+
+const footer = document.createElement('footer')
+footer.classList.add('footer')
+const contact = document.createElement('div')
+contact.classList.add('contact-details')
+const logoFooter = document.createElement('div')
+logoFooter.classList.add('logo-footer')
+const socialMediaTel = document.createElement('a')
+socialMediaTel.setAttribute('src', '#')
+const socialMediaFace = document.createElement('a')
+socialMediaFace.setAttribute('src', '#')
+const socialMediaMail = document.createElement('a')
+socialMediaMail.setAttribute('src', '#')
+
+
+contact.append(socialMediaTel, socialMediaFace, socialMediaMail)
+footer.append(contact, logoFooter)
 addHeader.appendChild(headerH1)
 headerH1.appendChild(headerText)
-fragment.append(addNav, addHeader, main)
+fragment.append(addNav, addHeader, main, footer)
 
 document.body.prepend(fragment)
 
-//book show more button animation
-
-// function addDescription() {
-// 	const btnsMore = document.getElementsByClassName('description-button')
-// 	// console.log(btnsMore)
-// 	for (btn of btnsMore) {
-// 		btn.addEventListener('click', (e) => {
-// 			btn.innerText('tak')
-//             console.log(e)
-// 		})
-// 	}
-// }
-
-// addDescription()
