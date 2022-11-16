@@ -60,6 +60,7 @@ function appendData(data) {
 			}
 		})
 
+
 		background.append(bookDescription)
 		divMainContainer.append(background, divBook, buttonBuy, buttonMoreInfo)
 		divBook.append(bookImage, bookTitle, bookAuthor,  bookPrice)
@@ -79,11 +80,109 @@ const fragment = new DocumentFragment()
 const addNav = document.createElement('nav')
 addNav.classList.add('navigation')
 addNav.setAttribute('id', 'navbar')
-const addNavButton = document.createElement('a')
-addNavButton.setAttribute('src', '#');
+
+const cart = document.createElement('div')
+cart.classList.add('cart')
+
+const nav = document.createElement('div')
+nav.classList.add('central-nav')
+const addNavButton = document.createElement('div')
+const imageCart = document.createElement('img')
+imageCart.setAttribute('src', '/img/cart-shopping-solid.svg')
+imageCart.setAttribute('alt', 'cart icon')
+addNavButton.appendChild(imageCart)
 addNavButton.classList.add('burger-btn')
+const cartAmount = document.createElement('div')
+cartAmount.innerText = '0'
 const addNavLogo = document.createElement('div')
-addNav.append(addNavLogo, addNavButton)
+addNavLogo.classList.add('logo')
+const navText = document.createElement('a')
+navText.setAttribute('src', 'main.html')
+navText.innerText = 'BOOK SHOP'
+addNavButton.append(cartAmount)
+addNavLogo.append(navText)
+nav.append(addNavLogo, addNavButton)
+addNav.append(cart, nav)
+
+// showing cart
+const showingCart = () => {
+addNavButton.addEventListener('click', () => cart.classList.toggle('cart-show'))}
+
+showingCart()
+
+//adding books
+
+// fetch('books2.json')
+// 	.then(response => {
+// 		return response.json()
+// 	})
+// 	.then(books => {
+// 		appendData(books)
+// 	})
+
+// 	.catch(err => {
+// 		console.log('error: ' + err)
+// 	})
+
+// function addToCart(books) {
+// 	let mainCart = document.querySelector('.cart')
+// 	for (let book in books) {
+// 		const fragmentCart = new DocumentFragment()
+// 		const cartMainContainer = document.createElement('div')
+// 		cartMainContainer.classList.add('main-cart')
+
+//         //book div
+// 		const divBookCart = document.createElement('div')
+// 		divBookCart.classList.add('book-cart')
+
+// 		const cartImage = document.createElement('img')
+// 		cartImage.setAttribute('src', data[book].imageLink)
+// 		cartImage.classList.add('bookImg')
+// 		const cartAuthor = document.createElement('p')
+// 		cartAuthor.innerHTML = `${data[book].author}`
+// 		cartAuthor.classList.add('author-cart')
+// 		const cartTitle = document.createElement('p')
+// 		cartTitle.innerHTML = `${data[book].title}`
+// 		cartTitle.classList.add('title-cart')
+// 		const cartPrice = document.createElement('p')
+// 		cartPrice.innerHTML = `Price: $${data[book].price}`
+// 		cartPrice.classList.add('price-cart')
+
+        
+// 		cartMainContainer.append(divBookCart)
+// 		divBookCart.append(cartImage, cartTitle, cartAuthor,  cartPrice)
+// 		fragmentCart.append(cartMainContainer)
+// 		mainCart.appendChild(fragmentCart)
+
+//         // //button buy
+// 		// const buttonMoreInfo = document.createElement('button')
+// 		// const buttonBuy = document.createElement('button')
+// 		// buttonBuy.innerHTML = 'Buy'
+// 		// buttonBuy.setAttribute('type', 'button')
+// 		// buttonBuy.classList.add('main-container__button-buy')
+
+//         // //button more background
+// 		// buttonMoreInfo.classList.add('main-container__button-more', 'description-button')
+// 		// buttonMoreInfo.innerHTML = 'Show more'
+// 		// buttonMoreInfo.setAttribute('type', 'button')
+
+// 		// buttonMoreInfo.addEventListener('click', e => {
+// 		// 	background.classList.toggle('btn-details')
+// 		// 	if (background.classList.contains('btn-details')) {
+// 		// 		buttonMoreInfo.innerHTML = 'Close'
+// 		// 	} else {
+// 		// 		buttonMoreInfo.innerHTML = 'Show More'
+// 		// 	}
+// 		// })
+
+
+	
+// 	}
+// }
+
+// console.log(addToCart())
+
+
 
 // header
 

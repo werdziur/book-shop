@@ -46,30 +46,87 @@ body {
 .navigation {
   width: 100%;
   background-color: #d3d3d3;
-  height: 9em;
+  height: 6em;
   margin: 0 auto;
   border-radius: 5px;
-  top: 0;
-  position: fixed;
-  left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 15000;
+  display: flex;
+  position: fixed;
+  top: 0;
 }
 
-.burger-btn {
-  position: absolute;
-  top: 75px;
-  right: 22%;
+.central-nav {
+  height: 6em;
+  width: 1200px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
   width: 5em;
-  height: 4em;
-  border: 1px solid black;
-  z-index: 1500000;
+  height: 100%;
+  color: #0b090a;
+  font-size: 5em;
+  font-weight: 700;
+  display: inline-block;
+  font-family: "Dancing Script", cursive;
   cursor: pointer;
 }
 
-.burger-btn:focus {
-  outline: none;
-  border: 1px solid rgba(0, 0, 0, 0.5);
+.burger-btn {
+  position: relative;
+  width: 9em;
+  height: 90%;
+  cursor: pointer;
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: #0b090a solid 2px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 5px 5px 10px rgba(22, 26, 29, 0.7);
+}
+
+.burger-btn img {
+  width: 68px;
+  height: 68px;
+  z-index: 100000000;
+}
+
+.burger-btn:active {
+  box-shadow: none;
+}
+
+.burger-btn div {
+  font-size: 1.8em;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  border: #0b090a 1px solid;
+  width: 30px;
+  height: 30px;
+  line-height: 25px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #a4161a;
+  color: white;
+}
+
+.cart {
+  position: fixed;
+  top: 6em;
+  height: 100vh;
+  width: 100%;
+  transform: translateY(100%);
+  transition: 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+  background-color: #F5F3F4;
+}
+
+.cart-show {
+  transform: translateY(0);
 }
 
 .main-container {
