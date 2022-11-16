@@ -78,8 +78,14 @@ const fragment = new DocumentFragment()
 
 const addNav = document.createElement('nav')
 addNav.classList.add('navigation')
+addNav.setAttribute('id', 'navbar')
+const addNavButton = document.createElement('a')
+addNavButton.setAttribute('src', '#');
+addNavButton.classList.add('burger-btn')
+const addNavLogo = document.createElement('div')
+addNav.append(addNavLogo, addNavButton)
 
-//header
+// header
 
 const addHeader = document.createElement('header')
 addHeader.classList.add('header')
@@ -117,7 +123,7 @@ contact.append(socialMediaTel, socialMediaFace, socialMediaMail)
 footer.append(contact, logoFooter)
 addHeader.appendChild(headerH1)
 headerH1.appendChild(headerText)
-fragment.append(addNav, addHeader, main, footer)
+fragment.append(addNav, addHeader,  main, footer)
 
 document.body.prepend(fragment)
 
