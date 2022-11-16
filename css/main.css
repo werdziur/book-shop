@@ -14,7 +14,7 @@ html {
 body {
   font-family: "Raleway", sans-serif;
   font-size: 1.6rem;
-  background-color: #ffe6a7;
+  background-color: #f5f3f4;
 }
 
 .header {
@@ -29,7 +29,7 @@ body {
   background-size: cover;
   background-image: radial-gradient(circle, rgba(153, 88, 42, 0.54) 0%, rgba(67, 40, 24, 0.83) 87%), url(../img/bg1-small.jpg);
   background-attachment: scroll;
-  color: antiquewhite;
+  color: white;
 }
 .header__heading {
   font-size: 4.8rem;
@@ -50,6 +50,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 .main-container__books {
   display: flex;
@@ -67,11 +69,11 @@ body {
   justify-content: center;
   align-items: center;
   margin: 10px;
-  background-color: #bb9457;
-  color: #432818;
-  border-radius: 10px;
+  background-color: #d3d3d3;
+  color: #0b090a;
+  border-radius: 5px;
   padding: 0.4em 0 5em 0;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+  box-shadow: 5px 5px 10px rgba(22, 26, 29, 0.7);
   z-index: 10;
   margin: 10px;
 }
@@ -79,16 +81,17 @@ body {
   width: 25em;
   height: 35em;
   padding: 2em;
+  padding-bottom: 1em;
 }
 .main-container__card p {
-  padding: 0.5em;
+  padding: 0.4em;
 }
 .main-container__card .author {
-  font-weight: 700;
-  font-size: 1.3em;
+  font-size: 1em;
 }
 .main-container__card .title {
-  font-size: 1.3em;
+  font-size: 1.4em;
+  font-weight: 700;
 }
 .main-container__card .price {
   font-size: 1.6em;
@@ -99,40 +102,48 @@ body {
   width: 8em;
   height: 3em;
   border-radius: 30px;
-  background-color: #895737;
-  color: antiquewhite;
+  background-color: #f5f3f4;
+  color: #0b090a;
   font-size: 1.8rem;
   padding: 0.5em 0.2em 0.5em 0.2em;
-  border: #432818 1px solid;
+  border: #d3d3d3 0.5px solid;
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 700;
   position: absolute;
   bottom: 40px;
   left: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 5px 5px 10px rgba(67, 40, 24, 0.7);
+  box-shadow: 5px 5px 10px rgba(22, 26, 29, 0.7);
   cursor: pointer;
   z-index: 10000;
+  transition: background-color 0.3s;
+}
+.main-container__button-more:hover {
+  background-color: #e9e7e7;
 }
 .main-container__button-buy {
   width: 8em;
   height: 3em;
   border-radius: 30px;
-  background-color: #780116;
-  color: antiquewhite;
+  background-color: #a4161a;
+  color: #ffffff;
   font-size: 1.8rem;
   padding: 0.5em 0.2em 0.5em 0.2em;
-  border: #432818 1px solid;
+  border: #ba181b 0.5px solid;
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 700;
   position: absolute;
   bottom: 40px;
   right: 40px;
-  box-shadow: 5px 5px 10px rgba(67, 40, 24, 0.7);
+  box-shadow: 5px 5px 10px rgba(22, 26, 29, 0.7);
   cursor: pointer;
   z-index: 10000;
+  transition: background-color 0.3s;
+}
+.main-container__button-buy:hover {
+  background-color: #BA181B;
 }
 
 .background {
@@ -146,7 +157,7 @@ body {
   background-color: rgba(0, 0, 0, 0.95);
   z-index: 999;
   margin: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
   justify-content: center;
   padding: 3em;
   line-height: 2em;
@@ -165,7 +176,7 @@ body {
 
 .footer {
   height: 50rem;
-  background-color: #432818;
+  background-color: #161a1d;
   padding: 3em;
   margin-top: 3em;
 }
@@ -207,11 +218,11 @@ body {
     margin-right: 2px;
   }
   .main-container__card .author {
-    font-weight: 700;
-    font-size: 1.8em;
+    font-size: 1.5em;
   }
   .main-container__card .title {
-    font-size: 1.5em;
+    font-size: 1.8em;
+    font-weight: 700;
   }
   .main-container__card .price {
     font-size: 2em;
@@ -219,19 +230,19 @@ body {
     padding-bottom: 1.8em;
   }
   .main-container__button-more {
-    width: 10em;
-    height: 4em;
+    width: 9em;
+    height: 3.5em;
     font-size: 2rem;
     padding: 0.5em 0.2em 0.5em 0.2em;
-    font-weight: 400;
+    font-weight: 700;
     box-shadow: 5px 5px 10px rgba(67, 40, 24, 0.7);
   }
   .main-container__button-buy {
-    width: 10em;
-    height: 4em;
+    width: 9em;
+    height: 3.5em;
     font-size: 2rem;
     padding: 0.5em 0.2em 0.5em 0.2em;
-    font-weight: 400;
+    font-weight: 700;
     box-shadow: 5px 5px 10px rgba(67, 40, 24, 0.7);
   }
 }
@@ -270,11 +281,11 @@ body {
     margin-right: 2px;
   }
   .main-container__card .author {
-    font-weight: 700;
-    font-size: 1.8em;
+    font-weight: 400;
+    font-size: 1.3em;
   }
   .main-container__card .title {
-    font-size: 1.5em;
+    font-size: 1.6em;
   }
   .main-container__card .price {
     font-size: 2em;
@@ -284,14 +295,85 @@ body {
   .main-container__button-more {
     width: 8em;
     height: 3em;
-    font-size: 1.9rem;
+    font-size: 1.8rem;
     bottom: 15px;
     left: 25px;
   }
   .main-container__button-buy {
     width: 8em;
     height: 3em;
-    font-size: 1.9rem;
+    font-size: 1.8rem;
+    bottom: 15px;
+    right: 25px;
+  }
+}
+@media (min-width: 1201px) {
+  .header {
+    background-image: radial-gradient(circle, rgba(153, 88, 42, 0.54) 0%, rgba(67, 40, 24, 0.83) 87%), url(../img/bg1-big.jpg);
+  }
+  .header__heading {
+    font-size: 8rem;
+  }
+  .header__text {
+    padding-top: 1em;
+    font-size: 5rem;
+  }
+  .background {
+    height: 70rem;
+    width: 50rem;
+    font-size: 1.4em;
+  }
+  .main-container {
+    padding: 0;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .main-container__books {
+    height: 70rem;
+    width: 50rem;
+    margin: 30px;
+  }
+  .main-container__card {
+    height: 70rem;
+    width: 50rem;
+    padding-top: 2em;
+  }
+  .main-container__card .bookImg {
+    width: 23em;
+    height: 33em;
+    padding: 2em;
+  }
+  .main-container__card p {
+    padding: 0.4em;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  .main-container__card .author {
+    font-weight: 400;
+    font-size: 1.3em;
+  }
+  .main-container__card .title {
+    font-size: 1.6em;
+    font-weight: 700;
+  }
+  .main-container__card .price {
+    font-size: 2.2em;
+    font-weight: 700;
+    padding-bottom: 1.8em;
+  }
+  .main-container__button-more {
+    width: 8em;
+    height: 3em;
+    font-size: 1.8rem;
+    bottom: 15px;
+    left: 25px;
+  }
+  .main-container__button-buy {
+    width: 8em;
+    height: 3em;
+    font-size: 1.8rem;
     bottom: 15px;
     right: 25px;
   }

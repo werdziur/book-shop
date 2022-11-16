@@ -54,7 +54,7 @@ function appendData(data) {
 		buttonMoreInfo.addEventListener('click', e => {
 			background.classList.toggle('btn-details')
 			if (background.classList.contains('btn-details')) {
-				buttonMoreInfo.innerHTML = 'Close X'
+				buttonMoreInfo.innerHTML = 'Close'
 			} else {
 				buttonMoreInfo.innerHTML = 'Show More'
 			}
@@ -62,7 +62,7 @@ function appendData(data) {
 
 		background.append(bookDescription)
 		divMainContainer.append(background, divBook, buttonBuy, buttonMoreInfo)
-		divBook.append(bookImage, bookAuthor, bookTitle, bookPrice)
+		divBook.append(bookImage, bookTitle, bookAuthor,  bookPrice)
 		fragmentBook.append(divMainContainer)
 		main.appendChild(fragmentBook)
 	}
