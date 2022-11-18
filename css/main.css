@@ -122,7 +122,7 @@ body {
   width: 100%;
   transform: translateY(100%);
   transition: 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
-  background-color: #F5F3F4;
+  background-color: #f5f3f4;
 }
 
 .cart-show {
@@ -263,6 +263,7 @@ body {
   transition: -webkit-clip-path 0.5s;
   transition: clip-path 0.5s;
   transition: clip-path 0.5s, -webkit-clip-path 0.5s;
+  text-align: justify;
 }
 
 .btn-details {
@@ -462,14 +463,14 @@ body {
   .main-container__button-more {
     width: 8em;
     height: 3em;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     bottom: 15px;
     left: 25px;
   }
   .main-container__button-buy {
     width: 8em;
     height: 3em;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     bottom: 15px;
     right: 25px;
   }

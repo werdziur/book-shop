@@ -12,15 +12,15 @@ fetch('books.json')
 
 function appendData(data) {
 	let main = document.querySelector('.main-container')
+
 	for (let book in data) {
 		const fragmentBook = new DocumentFragment()
 		const divMainContainer = document.createElement('div')
 		divMainContainer.classList.add('main-container__books')
 
-        //book div
+		//book div
 		const divBook = document.createElement('div')
 		divBook.classList.add('main-container__card')
-
 		const bookImage = document.createElement('img')
 		bookImage.setAttribute('src', data[book].imageLink)
 		bookImage.classList.add('bookImg')
@@ -39,14 +39,38 @@ function appendData(data) {
 		bookDescription.innerHTML = `${data[book].description}`
 		bookDescription.classList.add('description')
 
-        //button buy
+		//button buy
 		const buttonMoreInfo = document.createElement('button')
 		const buttonBuy = document.createElement('button')
 		buttonBuy.innerHTML = 'Buy'
 		buttonBuy.setAttribute('type', 'button')
+		buttonBuy.setAttribute('id', 'btn-buy')
 		buttonBuy.classList.add('main-container__button-buy')
 
-        //button more background
+		//adding to cart
+		function addToCart() {
+			buttonBuy.addEventListener('click', e => {
+				let mainCart = document.querySelector('.cart')
+				const bookImage = document.createElement('img')
+				bookImage.setAttribute('src', data[book].imageLink)
+				bookImage.classList.add('bookImgCart')
+				const bookAuthor = document.createElement('p')
+				bookAuthor.innerHTML = `${data[book].author}`
+				bookAuthor.classList.add('authorCart')
+				const bookTitle = document.createElement('p')
+				bookTitle.innerHTML = `${data[book].title}`
+				bookTitle.classList.add('titleCart')
+				const bookPrice = document.createElement('p')
+				bookPrice.innerHTML = `Price: $${data[book].price}`
+				bookPrice.classList.add('priceCart')
+
+				mainCart.append(bookImage, bookAuthor, bookTitle, bookPrice)
+			})
+		}
+
+		addToCart()
+
+		//button more background
 		buttonMoreInfo.classList.add('main-container__button-more', 'description-button')
 		buttonMoreInfo.innerHTML = 'Show more'
 		buttonMoreInfo.setAttribute('type', 'button')
@@ -60,10 +84,9 @@ function appendData(data) {
 			}
 		})
 
-
 		background.append(bookDescription)
 		divMainContainer.append(background, divBook, buttonBuy, buttonMoreInfo)
-		divBook.append(bookImage, bookTitle, bookAuthor,  bookPrice)
+		divBook.append(bookImage, bookTitle, bookAuthor, bookPrice)
 		fragmentBook.append(divMainContainer)
 		main.appendChild(fragmentBook)
 	}
@@ -83,6 +106,14 @@ addNav.setAttribute('id', 'navbar')
 
 const cart = document.createElement('div')
 cart.classList.add('cart')
+const totalValue = document.createElement('div')
+totalValue.classList.add('total-value')
+const totalValueText = document.createElement('p')
+totalValueText.innerText = 'Total:'
+const totalValueAmount = document.createElement('p')
+totalValueAmount.classList.add('sum')
+totalValue.append(totalValueText, totalValueAmount)
+cart.append(totalValue)
 
 const nav = document.createElement('div')
 nav.classList.add('central-nav')
@@ -94,6 +125,7 @@ addNavButton.appendChild(imageCart)
 addNavButton.classList.add('burger-btn')
 const cartAmount = document.createElement('div')
 cartAmount.innerText = '0'
+
 const addNavLogo = document.createElement('div')
 addNavLogo.classList.add('logo')
 const navText = document.createElement('a')
@@ -106,83 +138,12 @@ addNav.append(cart, nav)
 
 // showing cart
 const showingCart = () => {
-addNavButton.addEventListener('click', () => cart.classList.toggle('cart-show'))}
+	addNavButton.addEventListener('click', () => cart.classList.toggle('cart-show'))
+}
 
 showingCart()
 
-//adding books
-
-// fetch('books2.json')
-// 	.then(response => {
-// 		return response.json()
-// 	})
-// 	.then(books => {
-// 		appendData(books)
-// 	})
-
-// 	.catch(err => {
-// 		console.log('error: ' + err)
-// 	})
-
-// function addToCart(books) {
-// 	let mainCart = document.querySelector('.cart')
-// 	for (let book in books) {
-// 		const fragmentCart = new DocumentFragment()
-// 		const cartMainContainer = document.createElement('div')
-// 		cartMainContainer.classList.add('main-cart')
-
-//         //book div
-// 		const divBookCart = document.createElement('div')
-// 		divBookCart.classList.add('book-cart')
-
-// 		const cartImage = document.createElement('img')
-// 		cartImage.setAttribute('src', data[book].imageLink)
-// 		cartImage.classList.add('bookImg')
-// 		const cartAuthor = document.createElement('p')
-// 		cartAuthor.innerHTML = `${data[book].author}`
-// 		cartAuthor.classList.add('author-cart')
-// 		const cartTitle = document.createElement('p')
-// 		cartTitle.innerHTML = `${data[book].title}`
-// 		cartTitle.classList.add('title-cart')
-// 		const cartPrice = document.createElement('p')
-// 		cartPrice.innerHTML = `Price: $${data[book].price}`
-// 		cartPrice.classList.add('price-cart')
-
-        
-// 		cartMainContainer.append(divBookCart)
-// 		divBookCart.append(cartImage, cartTitle, cartAuthor,  cartPrice)
-// 		fragmentCart.append(cartMainContainer)
-// 		mainCart.appendChild(fragmentCart)
-
-//         // //button buy
-// 		// const buttonMoreInfo = document.createElement('button')
-// 		// const buttonBuy = document.createElement('button')
-// 		// buttonBuy.innerHTML = 'Buy'
-// 		// buttonBuy.setAttribute('type', 'button')
-// 		// buttonBuy.classList.add('main-container__button-buy')
-
-//         // //button more background
-// 		// buttonMoreInfo.classList.add('main-container__button-more', 'description-button')
-// 		// buttonMoreInfo.innerHTML = 'Show more'
-// 		// buttonMoreInfo.setAttribute('type', 'button')
-
-// 		// buttonMoreInfo.addEventListener('click', e => {
-// 		// 	background.classList.toggle('btn-details')
-// 		// 	if (background.classList.contains('btn-details')) {
-// 		// 		buttonMoreInfo.innerHTML = 'Close'
-// 		// 	} else {
-// 		// 		buttonMoreInfo.innerHTML = 'Show More'
-// 		// 	}
-// 		// })
-
-
-	
-// 	}
-// }
-
-// console.log(addToCart())
-
-
+// //adding to cart
 
 // header
 
@@ -191,7 +152,7 @@ addHeader.classList.add('header')
 
 const headerH1 = document.createElement('h1')
 headerH1.classList.add('header__heading')
-headerH1.innerText = 'Welcome in a book shop!'
+headerH1.innerText = 'Welcome to a bookshop!'
 
 const headerText = document.createElement('p')
 headerText.innerText = 'A magical place for all bookworms'
@@ -217,12 +178,10 @@ socialMediaFace.setAttribute('src', '#')
 const socialMediaMail = document.createElement('a')
 socialMediaMail.setAttribute('src', '#')
 
-
 contact.append(socialMediaTel, socialMediaFace, socialMediaMail)
 footer.append(contact, logoFooter)
 addHeader.appendChild(headerH1)
 headerH1.appendChild(headerText)
-fragment.append(addNav, addHeader,  main, footer)
+fragment.append(addNav, addHeader, main, footer)
 
 document.body.prepend(fragment)
-
