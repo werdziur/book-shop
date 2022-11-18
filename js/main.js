@@ -49,8 +49,14 @@ function appendData(data) {
 
 		//adding to cart
 		function addToCart() {
+			let totalItems = document.querySelector('.sum')
+			let mainCart = document.querySelector('.cart')
+			const fragmentAddToCart = new DocumentFragment()
+
 			buttonBuy.addEventListener('click', e => {
-				let mainCart = document.querySelector('.cart')
+				const divItem = document.createElement('div')
+				divItem.classList.add('div-item')
+
 				const bookImage = document.createElement('img')
 				bookImage.setAttribute('src', data[book].imageLink)
 				bookImage.classList.add('bookImgCart')
@@ -63,8 +69,16 @@ function appendData(data) {
 				const bookPrice = document.createElement('p')
 				bookPrice.innerHTML = `Price: $${data[book].price}`
 				bookPrice.classList.add('priceCart')
+				const removeButton = document.createElement('button')
+				removeButton.setAttribute('type', 'button')
+				removeButton.classList.add('remove-btn')
+				removeButton.innerText = 'Remove'
 
-				mainCart.append(bookImage, bookAuthor, bookTitle, bookPrice)
+				removeButton.addEventListener('click', (id) => divItem.remove(data[book].id))
+
+				divItem.append(bookImage, bookAuthor, bookTitle, bookPrice, removeButton)
+				fragmentAddToCart.append(divItem)
+				mainCart.append(fragmentAddToCart)
 			})
 		}
 
