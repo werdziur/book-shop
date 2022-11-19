@@ -90,14 +90,14 @@ function appendData(data) {
 
 				removeButton.addEventListener('click', id => divItem.remove(data[book].id))
 
-				function sumValueAdd() {
+				function sumValueRemove() {
 					removeButton.addEventListener('click', () => {
 						totalPrice -= data[book].price
 						sum.innerHTML = `$${totalPrice}`
 						console.log(sum)
 					})
 				}
-				sumValueAdd()
+				sumValueRemove()
 
 				divItem.append(bookImage, bookAuthor, bookTitle, bookPrice, removeButton)
 				fragmentAddToCart.append(divItem)
@@ -125,8 +125,9 @@ function appendData(data) {
 		cart.addEventListener('drop', function (e) {
 			e.preventDefault()
 			e.stopImmediatePropagation()
-			const data = e.dataTransfer.getData('text')
-			const nodeCopy = document.getElementById(data).cloneNode(true)
+
+			const data2 = e.dataTransfer.getData('text')
+			const nodeCopy = document.getElementById(data2).cloneNode(true)
 			nodeCopy.classList.remove('main-container__card')
 			cart.classList.remove('drop-zone')
 			nodeCopy.classList.add('div-item')
@@ -138,8 +139,17 @@ function appendData(data) {
 			cart.appendChild(nodeCopy)
 			console.log(nodeCopy)
 			cart.classList.remove('cart-show')
-
 			removeButton.addEventListener('click', id => nodeCopy.remove(data[book].id))
+
+			totalPrice += data[book].price
+			sum.innerHTML = `$${totalPrice}`
+			console.log(sum)
+
+			removeButton.addEventListener('click', () => {
+				totalPrice -= data[book].price
+				sum.innerHTML = `$${totalPrice}`
+				console.log(sum)
+			})
 		})
 
 		//button more background
