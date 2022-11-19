@@ -111,8 +111,15 @@ function appendData(data) {
 			nodeCopy.classList.remove('main-container__card')
 			cart.classList.remove('drop-zone')
 			nodeCopy.classList.add('div-item')
+			const removeButton = document.createElement('button')
+
+			removeButton.classList.add('remove-btn')
+			removeButton.innerText = 'Remove'
+			nodeCopy.appendChild(removeButton)
 			cart.appendChild(nodeCopy)
 			console.log(nodeCopy)
+
+			removeButton.addEventListener('click', id => nodeCopy.remove(data[book].id))
 		})
 
 		//button more background
