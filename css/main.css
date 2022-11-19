@@ -189,6 +189,43 @@ body {
   text-shadow: none;
 }
 
+.confirm-btn {
+  width: 20rem;
+  height: 5rem;
+  border-radius: 30px;
+  background-color: #a4161a;
+  color: #ffffff;
+  font-size: 1.6rem;
+  padding: 0.5em 0.2em 0.5em 0.2em;
+  border: #ba181b 0.5px solid;
+  text-transform: uppercase;
+  box-shadow: 5px 5px 10px rgba(22, 26, 29, 0.7);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.95);
+  text-decoration: none;
+  margin-top: 40px;
+  -webkit-appearance: button;
+     -moz-appearance: button;
+          appearance: button;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.confirm-btn:hover {
+  background-color: #ba181b;
+}
+
+.confirm-btn:active {
+  text-shadow: none;
+}
+
+.drop-zone {
+  border: #a4161a dashed 2px;
+}
+
 .main-container {
   margin: 0 auto;
   max-width: 1200px;
@@ -224,6 +261,8 @@ body {
   box-shadow: 5px 5px 10px rgba(22, 26, 29, 0.7);
   z-index: 10;
   margin: 10px;
+  cursor: -webkit-grab;
+  cursor: grab;
 }
 .main-container__card .bookImg {
   width: 25em;

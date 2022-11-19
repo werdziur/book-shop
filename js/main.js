@@ -21,6 +21,7 @@ function appendData(data) {
 		//book div
 		const divBook = document.createElement('div')
 		divBook.classList.add('main-container__card')
+		divBook.setAttribute('draggable', 'true')
 		const bookImage = document.createElement('img')
 		bookImage.setAttribute('src', data[book].imageLink)
 		bookImage.classList.add('bookImg')
@@ -38,6 +39,27 @@ function appendData(data) {
 		const bookDescription = document.createElement('p')
 		bookDescription.innerHTML = `${data[book].description}`
 		bookDescription.classList.add('description')
+
+		//drag and drop
+
+		// divBook.addEventListener('dragstart', e => {
+		// 	e.dataTransfer.setData('text/plain', data[book].id)
+		// })
+
+		// droppable element is taken
+
+		// cart.addEventListener('dragover', e => {
+		// 	e.preventDefault()
+		// 	cart.classList.add('drop-zone')
+		// })
+
+		//element dropped into drop zone
+		// cart.addEventListener('drop', e => {
+		// 	e.preventDefault()
+		// 	cart.classList.remove('drop-zone')
+		// 	const droppedItem = e.dataTransfer.getData('text/plain')
+        //     cart.append(bookImage, bookAuthor, bookTitle, bookPrice)
+		// })
 
 		//button buy
 		const buttonMoreInfo = document.createElement('button')
@@ -69,12 +91,14 @@ function appendData(data) {
 				const bookPrice = document.createElement('p')
 				bookPrice.innerHTML = `Price: $${data[book].price}`
 				bookPrice.classList.add('priceCart')
+
+                //removing from cart
 				const removeButton = document.createElement('button')
 				removeButton.setAttribute('type', 'button')
 				removeButton.classList.add('remove-btn')
 				removeButton.innerText = 'Remove'
 
-				removeButton.addEventListener('click', (id) => divItem.remove(data[book].id))
+				removeButton.addEventListener('click', id => divItem.remove(data[book].id))
 
 				divItem.append(bookImage, bookAuthor, bookTitle, bookPrice, removeButton)
 				fragmentAddToCart.append(divItem)
@@ -119,14 +143,18 @@ addNav.classList.add('navigation')
 addNav.setAttribute('id', 'navbar')
 
 const cart = document.createElement('div')
-cart.classList.add('cart')
+cart.classList.add('cart', 'droppable')
 const totalValue = document.createElement('div')
 totalValue.classList.add('total-value')
 const totalValueText = document.createElement('p')
 totalValueText.innerText = 'Total:'
 const totalValueAmount = document.createElement('p')
 totalValueAmount.classList.add('sum')
-totalValue.append(totalValueText, totalValueAmount)
+const confirmOrder = document.createElement('a')
+confirmOrder.classList.add('confirm-btn')
+confirmOrder.setAttribute('href', 'form.html')
+confirmOrder.innerText = 'confirm order'
+totalValue.append(totalValueText, totalValueAmount, confirmOrder)
 cart.append(totalValue)
 
 const nav = document.createElement('div')
