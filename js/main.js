@@ -216,9 +216,11 @@ const addNavLogo = document.createElement('div')
 addNavLogo.classList.add('logo')
 const navText = document.createElement('a')
 navText.setAttribute('src', 'main.html')
-navText.innerText = 'BOOK SHOP'
+navText.innerText = 'BookShop'
+const imgBook = document.createElement('img')
+imgBook.setAttribute('src', './img/Book8Colour3.svg')
 addNavButton.append(cartAmount)
-addNavLogo.append(navText)
+addNavLogo.append( imgBook, navText)
 nav.append(addNavLogo, addNavButton)
 addNav.append(cart, nav)
 

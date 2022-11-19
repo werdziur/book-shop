@@ -45,7 +45,7 @@ body {
 
 .navigation {
   width: 100%;
-  background-color: #d3d3d3;
+  background-color: #f0d8c1;
   height: 6em;
   margin: 0 auto;
   border-radius: 5px;
@@ -65,28 +65,41 @@ body {
 }
 
 .logo {
-  width: 5em;
-  height: 100%;
-  color: #0b090a;
-  font-size: 5em;
   font-weight: 700;
-  display: inline-block;
+  font-size: 1em;
+  margin-left: 50px;
   font-family: "Dancing Script", cursive;
+  border: #432818 1px solid;
+  border-radius: 8px;
+  background-color: rgb(246, 240, 234);
+  background-image: linear-gradient(90deg, rgb(246, 240, 234) 0%, rgb(241, 223, 209) 100%);
+  box-shadow: 5px 5px 10px rgba(22, 26, 29, 0.7);
+}
+
+.logo img {
+  width: 8em;
+  height: 100%;
+  display: inline-block;
   cursor: pointer;
+}
+
+.logo a {
+  padding-right: 10px;
 }
 
 .burger-btn {
   position: relative;
   width: 9em;
-  height: 90%;
+  height: 95%;
   cursor: pointer;
   display: inline-block;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: #0b090a solid 2px;
+  border: #0b090a solid 1px;
   border-radius: 5px;
-  background-color: white;
+  background-color: rgb(246, 240, 234);
+  background-image: linear-gradient(90deg, rgb(246, 240, 234) 0%, rgb(241, 223, 209) 100%);
   box-shadow: 5px 5px 10px rgba(22, 26, 29, 0.7);
 }
 
@@ -122,9 +135,9 @@ body {
   width: 100%;
   transform: translateX(100%);
   transition: 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
-  background-color: #d3d3d3;
+  background-color: #F6F0EA;
   overflow: scroll;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 10px;
   padding-bottom: 50px;
 }
@@ -255,7 +268,8 @@ body {
   justify-content: center;
   align-items: center;
   margin: 10px;
-  background-color: #ffffff;
+  background-color: rgb(246, 240, 234);
+  background-image: linear-gradient(90deg, rgb(246, 240, 234) 0%, rgb(241, 223, 209) 100%);
   color: #0b090a;
   border-radius: 5px;
   padding: 0.4em 0 5em 0;
@@ -290,7 +304,7 @@ body {
   width: 8em;
   height: 3em;
   border-radius: 30px;
-  background-color: #d3d3d3;
+  background-color: white;
   color: #0b090a;
   font-size: 1.8rem;
   padding: 0.5em 0.2em 0.5em 0.2em;
@@ -379,6 +393,22 @@ body {
 }
 
 @media (max-width: 600px) {
+  .logo {
+    display: none;
+  }
+  .burger-btn {
+    width: 7em;
+    height: 80%;
+    padding-right: 50px;
+  }
+  .burger-btn img {
+    width: 48px;
+    height: 48px;
+    z-index: 100000000;
+  }
+  .cart-show {
+    transform: translateX(0);
+  }
   .main-container {
     max-width: 30em;
   }
@@ -393,11 +423,43 @@ body {
   }
 }
 @media (max-width: 767px) {
+  .cart-show {
+    transform: translateX(0);
+  }
   .main-container {
     max-width: 40em;
   }
+  .logo {
+    display: none;
+  }
+  .burger-btn {
+    width: 7em;
+    height: 80%;
+    margin-left: 530px;
+  }
+  .burger-btn img {
+    width: 48px;
+    height: 48px;
+    z-index: 100000000;
+  }
 }
 @media (min-width: 768px) and (max-width: 992px) {
+  .cart-show {
+    transform: translateX(40%);
+  }
+  .logo {
+    display: none;
+  }
+  .burger-btn {
+    width: 7em;
+    height: 80%;
+    margin-left: 700px;
+  }
+  .burger-btn img {
+    width: 48px;
+    height: 48px;
+    z-index: 100000000;
+  }
   .main-container {
     width: 45em;
   }
@@ -448,6 +510,9 @@ body {
     height: 65rem;
     width: 45rem;
     font-size: 1.2em;
+  }
+  .cart-show {
+    transform: translateX(50%);
   }
   .main-container {
     padding: 0;
