@@ -12,7 +12,7 @@ fetch('books.json')
 
 function appendData(data) {
 	let main = document.querySelector('.main-container')
-
+	let totalPrice = 0
 	for (let book in data) {
 		const fragmentBook = new DocumentFragment()
 		const divMainContainer = document.createElement('div')
@@ -49,9 +49,20 @@ function appendData(data) {
 		buttonBuy.setAttribute('id', 'btn-buy')
 		buttonBuy.classList.add('main-container__button-buy')
 
+		//summing total
+		let sum = document.querySelector('.sum')
+
+		function sumValueAdd() {
+			buttonBuy.addEventListener('click', () => {
+				totalPrice += data[book].price
+				sum.innerHTML = `$${totalPrice}`
+				console.log(sum)
+			})
+		}
+		sumValueAdd()
+
 		//adding to cart
 		function addToCart() {
-			let totalItems = document.querySelector('.sum')
 			let mainCart = document.querySelector('.cart')
 			const fragmentAddToCart = new DocumentFragment()
 
@@ -79,6 +90,15 @@ function appendData(data) {
 
 				removeButton.addEventListener('click', id => divItem.remove(data[book].id))
 
+				function sumValueAdd() {
+					removeButton.addEventListener('click', () => {
+						totalPrice -= data[book].price
+						sum.innerHTML = `$${totalPrice}`
+						console.log(sum)
+					})
+				}
+				sumValueAdd()
+
 				divItem.append(bookImage, bookAuthor, bookTitle, bookPrice, removeButton)
 				fragmentAddToCart.append(divItem)
 				mainCart.append(fragmentAddToCart)
@@ -87,11 +107,10 @@ function appendData(data) {
 
 		addToCart()
 
-		//drag and drop starts
-
 		divBook.addEventListener('dragstart', function (e) {
 			e.dataTransfer.setData('text/plain', e.target.id)
 			e.stopImmediatePropagation()
+			cart.classList.add('cart-show')
 		})
 
 		// 		// droppable element is taken
@@ -118,6 +137,7 @@ function appendData(data) {
 			nodeCopy.appendChild(removeButton)
 			cart.appendChild(nodeCopy)
 			console.log(nodeCopy)
+			cart.classList.remove('cart-show')
 
 			removeButton.addEventListener('click', id => nodeCopy.remove(data[book].id))
 		})
@@ -158,12 +178,11 @@ addNav.setAttribute('id', 'navbar')
 
 const cart = document.createElement('div')
 cart.classList.add('cart', 'droppable')
-// cart.setAttribute('id', 'data[book].id')
 const totalValue = document.createElement('div')
 totalValue.classList.add('total-value')
 const totalValueText = document.createElement('p')
 totalValueText.innerText = 'Total:'
-const totalValueAmount = document.createElement('p')
+let totalValueAmount = document.createElement('p')
 totalValueAmount.classList.add('sum')
 const confirmOrder = document.createElement('a')
 confirmOrder.classList.add('confirm-btn')
@@ -200,8 +219,6 @@ const showingCart = () => {
 
 showingCart()
 
-// //adding to cart
-
 // header
 
 const addHeader = document.createElement('header')
@@ -209,7 +226,7 @@ addHeader.classList.add('header')
 
 const headerH1 = document.createElement('h1')
 headerH1.classList.add('header__heading')
-headerH1.innerText = 'Welcome to a bookshop!'
+headerH1.innerText = 'Welcome to BookShop!'
 
 const headerText = document.createElement('p')
 headerText.innerText = 'A magical place for all bookworms'
