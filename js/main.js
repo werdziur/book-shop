@@ -22,6 +22,7 @@ function appendData(data) {
 		const divBook = document.createElement('div')
 		divBook.classList.add('main-container__card')
 		divBook.setAttribute('draggable', 'true')
+		divBook.setAttribute('id', data[book].id)
 		const bookImage = document.createElement('img')
 		bookImage.setAttribute('src', data[book].imageLink)
 		bookImage.classList.add('bookImg')
@@ -40,27 +41,6 @@ function appendData(data) {
 		bookDescription.innerHTML = `${data[book].description}`
 		bookDescription.classList.add('description')
 
-		//drag and drop
-
-		// divBook.addEventListener('dragstart', e => {
-		// 	e.dataTransfer.setData('text/plain', data[book].id)
-		// })
-
-		// droppable element is taken
-
-		// cart.addEventListener('dragover', e => {
-		// 	e.preventDefault()
-		// 	cart.classList.add('drop-zone')
-		// })
-
-		//element dropped into drop zone
-		// cart.addEventListener('drop', e => {
-		// 	e.preventDefault()
-		// 	cart.classList.remove('drop-zone')
-		// 	const droppedItem = e.dataTransfer.getData('text/plain')
-        //     cart.append(bookImage, bookAuthor, bookTitle, bookPrice)
-		// })
-
 		//button buy
 		const buttonMoreInfo = document.createElement('button')
 		const buttonBuy = document.createElement('button')
@@ -78,7 +58,6 @@ function appendData(data) {
 			buttonBuy.addEventListener('click', e => {
 				const divItem = document.createElement('div')
 				divItem.classList.add('div-item')
-
 				const bookImage = document.createElement('img')
 				bookImage.setAttribute('src', data[book].imageLink)
 				bookImage.classList.add('bookImgCart')
@@ -92,7 +71,7 @@ function appendData(data) {
 				bookPrice.innerHTML = `Price: $${data[book].price}`
 				bookPrice.classList.add('priceCart')
 
-                //removing from cart
+				//removing from cart
 				const removeButton = document.createElement('button')
 				removeButton.setAttribute('type', 'button')
 				removeButton.classList.add('remove-btn')
@@ -107,6 +86,34 @@ function appendData(data) {
 		}
 
 		addToCart()
+
+		//drag and drop starts
+
+		divBook.addEventListener('dragstart', function (e) {
+			e.dataTransfer.setData('text/plain', e.target.id)
+			e.stopImmediatePropagation()
+		})
+
+		// 		// droppable element is taken
+
+		cart.addEventListener('dragover', function (e) {
+			e.preventDefault()
+			cart.classList.add('drop-zone')
+		})
+
+		// 		//element dropped into drop zone
+
+		cart.addEventListener('drop', function (e) {
+			e.preventDefault()
+			e.stopImmediatePropagation()
+			const data = e.dataTransfer.getData('text')
+			const nodeCopy = document.getElementById(data).cloneNode(true)
+			nodeCopy.classList.remove('main-container__card')
+			cart.classList.remove('drop-zone')
+			nodeCopy.classList.add('div-item')
+			cart.appendChild(nodeCopy)
+			console.log(nodeCopy)
+		})
 
 		//button more background
 		buttonMoreInfo.classList.add('main-container__button-more', 'description-button')
@@ -144,6 +151,7 @@ addNav.setAttribute('id', 'navbar')
 
 const cart = document.createElement('div')
 cart.classList.add('cart', 'droppable')
+// cart.setAttribute('id', 'data[book].id')
 const totalValue = document.createElement('div')
 totalValue.classList.add('total-value')
 const totalValueText = document.createElement('p')
