@@ -225,8 +225,8 @@ nav.append(addNavLogo, addNavButton)
 addNav.append(cart, nav)
 
 // showing cart
-const showingCart = () => {
-	addNavButton.addEventListener('click', () => cart.classList.toggle('cart-show'))
+function showingCart() {
+    addNavButton.addEventListener('click', () => cart.classList.toggle('cart-show'))
 }
 
 showingCart()

@@ -13,14 +13,76 @@
     <script src="https://kit.fontawesome.com/ef4acaea7b.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/form.css">
 </head>
 
 <body>
+    <nav class="navigation" id="navbar">
 
-    <script src="js/form.js"></script>
+        <div class="central-nav">
+            <div class="logo"><a href="main.html"><img src="./img/Book8Colour3.svg">BookShop</a></div>
+
+        </div>
+        </div>
+    </nav>
+    <header class="header">
+        <h1 class="header__heading">Confirm order<p class="header__text">Shipping details</p>
+        </h1>
+    </header>
+    <main class="main-container">
+        <form action="" class="main-form">
+            <div class="ship-component private-info">
+                <h2>Personal information</h2>
+                <label for="name">First</label>
+                <input type="text" id="name" required>
+                <label for="surname">Last</label>
+                <input type="text" id="surname" required>
+                <label for="date">Delivery date</label>
+                <input type="date" id="date" value="2022-07-22" min="2022-01-01" max="2023-01-31" required>
+            </div>
+
+            <div class="ship-component address">
+                <h2>Address</h2>
+                <label for="street">Street</label>
+                <input type="text" id="street" required>
+                <label for="hnumber">House number</label>
+                <input type="text" id="hnumber" required>
+                <label for="flat-number">Flat number</label>
+                <input type="text" id="flat-number" required>
+            </div>
+
+            <div class="ship-component payment">
+                <h2>Payment</h2>
+                <input type="radio" name="payment" id="payment" required checked>
+                <label for="payment">Card</label>
+                <input type="radio" name="payment" id="payment2" required>
+                <label for="payment2">Cash</label>
+            </div>
+
+            <div class="ship-component checkboxes">
+                <h2>Choose 2 gifts (optional):</h2>
+                <label for="pack"><input type="checkbox" id="pack"> pack as a gift</label>
+                <label for="postcard"><input type="checkbox" id="postcard">
+                    add postcard</label>
+                <label for="discount"><input type="checkbox" id="discount">
+                    provide 2% discount to next order</label>
+                <label for="pen"><input type="checkbox" for="pen">
+                    branded pen or pencil</label>
+            </div>
+
+            <div class="form-button"><input type="submit" value="Purchase" class="btn-purchase"></div>
+
+        </form>
+    </main>
+
+    <footer class="footer">
+        <div class="contact-details"><a src="#"></a><a src="#"></a><a src="#"></a></div>
+        <div class="logo-footer"></div>
+    </footer>
+
+    <script src="/js/form.js"></script>
+
 </body>
 
 </html>
