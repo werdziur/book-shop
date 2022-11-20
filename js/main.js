@@ -13,6 +13,7 @@ fetch('books.json')
 function appendData(data) {
 	let main = document.querySelector('.main-container')
 	let totalPrice = 0
+	let totalItemsCart = 0
 	for (let book in data) {
 		const fragmentBook = new DocumentFragment()
 		const divMainContainer = document.createElement('div')
@@ -51,6 +52,7 @@ function appendData(data) {
 
 		//summing total
 		let sum = document.querySelector('.sum')
+		let cartItems = document.querySelector('.cart-items')
 
 		function sumValueAdd() {
 			buttonBuy.addEventListener('click', () => {
@@ -60,6 +62,16 @@ function appendData(data) {
 			})
 		}
 		sumValueAdd()
+
+		function sumItemsCart() {
+			buttonBuy.addEventListener('click', () => {
+				totalItemsCart += 1
+				cartItems.innerHTML = `${totalItemsCart}`
+				console.log(cartItems)
+			})
+		}
+
+		sumItemsCart()
 
 		//adding to cart
 		function addToCart() {
@@ -98,6 +110,16 @@ function appendData(data) {
 					})
 				}
 				sumValueRemove()
+
+				function sumItemsCartRemove() {
+					removeButton.addEventListener('click', () => {
+						totalItemsCart -= 1
+						cartItems.innerHTML = `${totalItemsCart}`
+						console.log(cartItems)
+					})
+				}
+
+				sumItemsCartRemove()
 
 				divItem.append(bookImage, bookAuthor, bookTitle, bookPrice, removeButton)
 				fragmentAddToCart.append(divItem)
@@ -139,18 +161,22 @@ function appendData(data) {
 			cart.appendChild(nodeCopy)
 			console.log(nodeCopy)
 			cart.classList.remove('cart-show')
-			removeButton.addEventListener('click', id => nodeCopy.remove(data[book].id))
 
+			removeButton.addEventListener('click', id => nodeCopy.remove(data[book].id))
 			totalPrice += data[book].price
 			sum.innerHTML = `$${totalPrice}`
-			console.log(sum)
+			totalItemsCart += 1
+			cartItems.innerHTML = `${totalItemsCart}`
 
 			removeButton.addEventListener('click', () => {
 				totalPrice -= data[book].price
 				sum.innerHTML = `$${totalPrice}`
-				console.log(sum)
+				totalItemsCart -= 1
+				cartItems.innerHTML = `${totalItemsCart}`
 			})
 		})
+
+	
 
 		//button more background
 		buttonMoreInfo.classList.add('main-container__button-more', 'description-button')
@@ -210,6 +236,7 @@ imageCart.setAttribute('alt', 'cart icon')
 addNavButton.appendChild(imageCart)
 addNavButton.classList.add('burger-btn')
 const cartAmount = document.createElement('div')
+cartAmount.classList.add('cart-items')
 cartAmount.innerText = '0'
 
 const addNavLogo = document.createElement('div')
@@ -220,16 +247,20 @@ navText.innerText = 'BookShop'
 const imgBook = document.createElement('img')
 imgBook.setAttribute('src', './img/Book8Colour3.svg')
 addNavButton.append(cartAmount)
-addNavLogo.append( imgBook, navText)
+addNavLogo.append(imgBook, navText)
 nav.append(addNavLogo, addNavButton)
 addNav.append(cart, nav)
 
 // showing cart
 function showingCart() {
-    addNavButton.addEventListener('click', () => cart.classList.toggle('cart-show'))
+	addNavButton.addEventListener('click', () => cart.classList.toggle('cart-show'))
+	cart.addEventListener('mouseleave', () => cart.classList.toggle('cart-show'))
+	
 }
 
 showingCart()
+
+
 
 // header
 
