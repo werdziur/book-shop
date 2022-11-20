@@ -30,7 +30,7 @@ body {
   background-image: radial-gradient(circle, rgba(153, 88, 42, 0.54) 0%, rgba(67, 40, 24, 0.83) 87%), url(../img/bg1-small.jpg);
   background-attachment: scroll;
   color: white;
-  margin-bottom: 10rem;
+  margin-bottom: 2rem;
   margin-top: 6.4rem;
 }
 .header__heading {
@@ -99,7 +99,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 0px;
   margin-bottom: 50px;
 }
 
