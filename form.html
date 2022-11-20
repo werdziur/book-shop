@@ -27,11 +27,11 @@
         </div>
     </nav>
     <header class="header">
-        <h1 class="header__heading">Confirm order<p class="header__text">Shipping details</p>
+        <h1 class="header__heading">Confirm your order<p class="header__text">Shipping details</p>
         </h1>
     </header>
     <main class="main-container">
-        <form target = "_blank" class="main-form">
+        <form target="_blank" class="main-form">
             <div class="ship-component private-info">
                 <h2>Personal information</h2>
 
@@ -87,11 +87,19 @@
                     branded pen or pencil</label>
             </div>
             <div id="submit-error"></div>
-            <div class="form-button"><input type="submit" value="Purchase" class="btn-disabled" id="submit-button"></div>
+            <div class="form-button"><input type="submit" value="Purchase" class="btn-disabled" id="submit-button">
+            </div>
 
         </form>
 
-        <div class="order-confirmation"></div>
+        <div class="order-confirmation">
+            <img src="./img/package-g6c99e36e2_1280.png" alt="image of package-g6c99e36e2_1280">
+            <h2>Your order has been submitted and will be delivered to below address soon:</h2>
+            <p id="address-details"></p>
+            <p class="last-p">thank you!</p>
+
+            </h2>
+        </div>
     </main>
 
     <footer class="footer">

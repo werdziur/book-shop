@@ -118,6 +118,58 @@ body {
   margin: 10px;
 }
 
+.order-confirmation {
+  position: absolute;
+  height: 70em;
+  display: flex;
+  width: 70%;
+  padding: 10em;
+  padding-top: 5em;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: rgb(246, 240, 234);
+  background-image: linear-gradient(90deg, rgb(246, 240, 234) 0%, rgb(241, 223, 209) 100%);
+  color: #0b090a;
+  border-radius: 5px;
+  padding: 5em 2em 1em 2em;
+  box-shadow: 5px 5px 10px rgba(22, 26, 29, 0.7);
+  margin: 10px;
+  z-index: 1000;
+  display: none;
+}
+
+.order-confirmation img {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.order-confirmation h2 {
+  margin-top: 300px;
+  font-size: 2em;
+  line-height: 2em;
+  text-align: justify;
+  padding: 2em;
+}
+
+.last-p {
+  text-align: center;
+  padding-top: 2em;
+  padding-bottom: 1em;
+  font-size: 3em;
+  text-transform: uppercase;
+}
+
+#address-details {
+  text-align: center;
+  padding-top: 2em;
+  font-size: 2em;
+  text-transform: uppercase;
+}
+
 .ship-component {
   padding: 2em;
   padding-top: 0.5em;

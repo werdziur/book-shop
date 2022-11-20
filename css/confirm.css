@@ -115,26 +115,6 @@ body {
   box-shadow: 5px 5px 10px rgba(22, 26, 29, 0.7);
 }
 
-.main-form h2 {
-  font-size: 1.5em;
-  line-height: 2em;
-  text-align: justify;
-}
-
-.last-p {
-  text-align: center;
-  padding-top: 5em;
-  font-size: 2em;
-  text-transform: uppercase;
-}
-
-#address-details {
-  text-align: center;
-  padding-top: 2em;
-  font-size: 1.5em;
-  text-transform: uppercase;
-}
-
 @media (max-width: 600px) {
   .logo {
     display: none;

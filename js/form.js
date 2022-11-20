@@ -12,7 +12,7 @@ const discount = document.querySelector('#discount')
 const pen = document.querySelector('#pen')
 const submitBtn = document.querySelector('#submit-button')
 const confirmation = document.querySelector('.order-confirmation')
-const shippingDetails = document.querySelector('#contact-details')
+const shippingDetails = document.querySelector('#address-details')
 
 //error spans
 const nameError = document.querySelector('#name-error')
@@ -26,25 +26,24 @@ const giftError = document.querySelector('#gift-error')
 const submitError = document.querySelector('#submit-error')
 
 function buttonDisabled() {
-        if (
-            !nameValidation() ||
-            !surnameValidation() ||
-            !nameValidation() ||
-            !streetValidation() ||
-            !houseNumberValidation() ||
-            !flatNumberValidation()
-        ) {
-            submitBtn.classList.add('btn-disabled')
-            submitBtn.classList.remove('btn-purchase')
-        } else {
-            submitBtn.classList.remove('btn-disabled')
-            submitBtn.classList.add('btn-purchase')
-        }
-    }
-    
+	if (
+		!nameValidation() ||
+		!surnameValidation() ||
+		!nameValidation() ||
+		!streetValidation() ||
+		!houseNumberValidation() ||
+		!flatNumberValidation()
+	) {
+		submitBtn.classList.add('btn-disabled')
+		submitBtn.classList.remove('btn-purchase')
+	} else {
+		submitBtn.classList.remove('btn-disabled')
+		submitBtn.classList.add('btn-purchase')
+	}
+}
 
 firstName.addEventListener('focusout', buttonDisabled)
-firstName.addEventListener('blur',() => nameValidation())
+firstName.addEventListener('blur', () => nameValidation())
 function nameValidation() {
 	let name = firstName.value
 	if (name.length === 0) {
@@ -123,8 +122,7 @@ function houseNumberValidation() {
 	}
 }
 
-
-flatNumber.addEventListener('focusout', buttonDisabled)
+flatNumber.addEventListener('mouseout', buttonDisabled)
 flatNumber.addEventListener('blur', () => flatNumberValidation())
 function flatNumberValidation() {
 	let flatNumberValid = flatNumber.value
@@ -156,15 +154,15 @@ function validateForm() {
 		) {
 			submitError.style.display = 'block'
 			submitError.innerHTML = 'Please fill all required fields!'
-        
 
 			setTimeout(function () {
 				submitError.style.display = 'none'
 			}, 3000)
 			return false
 		} else {
-			console.log('submitted')
-            e.preventDefault()
+			confirmation.style.display = 'block'
+			e.preventDefault()
+			shippingDetails.innerText = `${firstName.value} ${surname.value}, ${street.value} ${houseNumber.value} / ${flatNumber.value}`
 		}
 	})
 }
@@ -172,7 +170,5 @@ function validateForm() {
 validateForm()
 
 // submitBtn.addEventListener('submit', e => {
-// 	shippingDetails.innerText = `${firstName.value} ${surname.value} ${street.value} ${houseNumber.value} ${flatNumber.value}`
+//
 // })
-
-
