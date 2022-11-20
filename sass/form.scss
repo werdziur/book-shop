@@ -111,7 +111,7 @@ body {
 }
 
 .main-form {
-	height: 65em;
+	height: 70em;
 	display: flex;
 	width: 70%;
 	flex-direction: column;
@@ -127,11 +127,11 @@ body {
 
 .ship-component {
 	padding: 2em;
-	padding-top: 1em;
+	padding-top: 0.5em;
 }
 
 .ship-component h2 {
-	padding-bottom: 0.5em;
+	padding-bottom: .5em;
 }
 
 .private-info input,
@@ -140,7 +140,7 @@ body {
 	line-height: 2em;
 	height: 2em;
 	font-size: 1em;
-	margin-bottom: 0.4em;
+	margin-bottom: 0.6em;
 	display: flex;
 	flex-direction: column;
 }
@@ -184,6 +184,13 @@ body {
 	align-items: center;
 }
 
+#submit-error {
+	padding-bottom: 1em;
+	color: #a4161a;
+	font-weight: 700;
+	text-align: center;
+}
+
 .btn-purchase {
 	width: 10em;
 	height: 3.5em;
@@ -216,6 +223,82 @@ body {
 	background-color: #161a1d;
 	padding: 3em;
 	margin-top: 7em;
+}
+
+// input:valid {
+// 	border: 2px solid green;
+// }
+
+// input:invalid:required {
+// 	border: #a4161a 2px solid;
+// }
+
+.pi-1,
+.pi-2,
+.pi-3,
+.a-1,
+.a-2,
+.a-3 {
+	position: relative;
+}
+.pi-1 span,
+.pi-2 span,
+.pi-3 span,
+.a-1 span,
+.a-2 span,
+.a-3 span {
+	width: 100%;
+	color: #a4161a;
+	font-size: 1.2rem;
+	font-weight: 700;
+	position: absolute;
+}
+
+i {
+    color: green;
+}
+.pi-1 span {
+	bottom: 10px;
+	left: 220px;
+}
+
+.pi-2 span {
+	bottom: 10px;
+	left: 205px;
+}
+
+.pi-3 span {
+	bottom: 10px;
+	left: 155px;
+}
+
+.a-1 span {
+	bottom: 10px;
+	left: 220px;
+}
+
+.a-2 span {
+	bottom: 10px;
+	left: 170px;
+}
+
+.a-3 span {
+	bottom: 10px;
+	left: 185px;
+}
+
+.payment span {
+    color: #a4161a;
+	font-size: 1.2rem;
+	font-weight: 700;
+}
+
+.checkboxes span {
+    color: #a4161a;
+	font-size: 1.2rem;
+	font-weight: 700;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 
 //MEDIA QUERIES
