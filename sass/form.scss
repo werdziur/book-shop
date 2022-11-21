@@ -1,0 +1,422 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+	font-size: 1.6rem;
+	background-color: #f5f3f4;
+}
+
+//HEADER
+
+.header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 2em;
+	height: 30vh;
+	text-align: center;
+	background-position: center;
+	background-size: cover;
+	background-image: radial-gradient(circle, rgba(153, 88, 42, 0.54) 0%, rgba(67, 40, 24, 0.83) 87%),
+		url(../img/bg1-small.jpg);
+	background-attachment: scroll;
+	color: white;
+	margin-bottom: 2rem;
+	margin-top: 6.4rem;
+
+	&__heading {
+		padding-top: 0.5em;
+		font-size: 4.8rem;
+	}
+
+	&__text {
+		padding-top: 2em;
+		font-size: 2.5rem;
+		font-family: 'Dancing Script', cursive;
+		font-weight: 400;
+	}
+}
+
+// NAV
+.navigation {
+	width: 100%;
+	background-color: #f0d8c1;
+	height: 6em;
+	margin: 0 auto;
+	border-radius: 5px;
+	z-index: 15000;
+	display: flex;
+	position: fixed;
+	top: 0;
+}
+
+.central-nav {
+	height: 6em;
+	width: 1200px;
+	display: flex;
+	margin: 0 auto;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo {
+	font-weight: 700;
+	font-size: 1em;
+	margin-left: 50px;
+	font-family: 'Dancing Script', cursive;
+	border: #432818 1px solid;
+	border-radius: 8px;
+	background-color: rgba(246, 240, 234, 1);
+	background-image: linear-gradient(90deg, rgba(246, 240, 234, 1) 0%, rgba(241, 223, 209, 1) 100%);
+	box-shadow: 5px 5px 10px rgba(#161a1d, 0.7);
+}
+
+.logo img {
+	width: 8em;
+	height: 100%;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.logo a {
+	padding-right: 10px;
+	color: #0b090a;
+	text-decoration: none;
+}
+
+//MAIN
+
+.main-container {
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 2em 0.7em 2em 0.7em;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 0px;
+	margin-bottom: 50px;
+}
+
+.main-form {
+	height: 70em;
+	display: flex;
+	width: 70%;
+	flex-direction: column;
+	justify-content: center;
+	background-color: rgba(246, 240, 234, 1);
+	background-image: linear-gradient(90deg, rgba(246, 240, 234, 1) 0%, rgba(241, 223, 209, 1) 100%);
+	color: #0b090a;
+	border-radius: 5px;
+	padding: 1em 2em 1em 2em;
+	box-shadow: 5px 5px 10px rgba(#161a1d, 0.7);
+	margin: 10px;
+}
+
+.order-confirmation {
+	position: absolute;
+	height: 70em;
+	display: flex;
+	width: 70%;
+	padding: 10em;
+	padding-top: 5em;
+	flex-direction: column;
+	justify-content: flex-end;
+	background-color: rgba(246, 240, 234, 1);
+	background-image: linear-gradient(90deg, rgba(246, 240, 234, 1) 0%, rgba(241, 223, 209, 1) 100%);
+	color: #0b090a;
+	border-radius: 5px;
+	padding: 5em 2em 1em 2em;
+	box-shadow: 5px 5px 10px rgba(#161a1d, 0.7);
+	margin: 10px;
+	z-index: 1000;
+	display: none;
+}
+
+.order-confirmation img {
+	width: 400px;
+	height: 400px;
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.order-confirmation h2 {
+	margin-top: 300px;
+	font-size: 2em;
+	line-height: 2em;
+	text-align: justify;
+	padding: 2em;
+}
+
+.last-p {
+	text-align: center;
+	padding-top: 2em;
+	padding-bottom: 1em;
+	font-size: 3em;
+	text-transform: uppercase;
+}
+
+#address-details {
+	text-align: center;
+	padding-top: 2em;
+	font-size: 2em;
+	text-transform: uppercase;
+}
+
+.ship-component {
+	padding: 2em;
+	padding-top: 0.5em;
+}
+
+.ship-component h2 {
+	padding-bottom: 0.5em;
+}
+
+.private-info input,
+.address input {
+	width: 50%;
+	line-height: 2em;
+	height: 2em;
+	font-size: 1em;
+	margin-bottom: 0.6em;
+	display: flex;
+	flex-direction: column;
+}
+
+.private-info label,
+.address label {
+	line-height: 2em;
+	height: 2em;
+	font-size: 1em;
+	margin-bottom: 0.1em;
+	font-weight: 700;
+	text-transform: capitalize;
+}
+
+.payment input {
+	margin-right: 0.5em;
+}
+
+.payment label {
+	margin-right: 1em;
+	font-size: 1.2em;
+}
+
+#date {
+	flex-direction: row;
+}
+
+.checkboxes {
+	display: flex;
+	flex-direction: column;
+	font-size: 0.8em;
+}
+
+.checkboxes label {
+	padding: 0.2em;
+}
+
+.form-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#submit-error {
+	padding-bottom: 1em;
+	color: #a4161a;
+	font-weight: 700;
+	text-align: center;
+}
+
+.btn-purchase {
+	width: 10em;
+	height: 3.5em;
+	border-radius: 30px;
+	background-color: #a4161a;
+	color: #ffffff;
+	font-size: 1.8rem;
+	padding: 0.5em 0.2em 0.5em 0.2em;
+	border: #ba181b 0.5px solid;
+	text-transform: uppercase;
+	font-weight: 400;
+	box-shadow: 5px 5px 10px rgba(#161a1d, 0.7);
+	cursor: pointer;
+	transition: background-color 0.3s;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.95);
+}
+
+.btn-purchase:hover {
+	background-color: #ba181b;
+}
+
+.btn-purchase:active {
+	text-shadow: none;
+}
+
+.btn-disabled {
+	width: 10em;
+	height: 3.5em;
+	border-radius: 30px;
+	background-color: grey;
+	color: black;
+	font-size: 1.8rem;
+	padding: 0.5em 0.2em 0.5em 0.2em;
+	border: grey 0.5px solid;
+	text-transform: uppercase;
+	font-weight: 400;
+	box-shadow: 5px 5px 10px rgba(#161a1d, 0.7);
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.95);
+}
+
+//footer
+
+.footer {
+	height: 30rem;
+	background-color: #161a1d;
+	padding: 3em;
+	margin-top: 7em;
+}
+
+.pi-1,
+.pi-2,
+.pi-3,
+.a-1,
+.a-2,
+.a-3 {
+	position: relative;
+}
+.pi-1 span,
+.pi-2 span,
+.pi-3 span,
+.a-1 span,
+.a-2 span,
+.a-3 span {
+	width: 100%;
+	color: #a4161a;
+	font-size: 1.2rem;
+	font-weight: 700;
+	position: absolute;
+}
+
+i {
+	color: green;
+}
+.pi-1 span {
+	bottom: 10px;
+	left: 220px;
+}
+
+.pi-2 span {
+	bottom: 10px;
+	left: 205px;
+}
+
+.pi-3 span {
+	bottom: 10px;
+	left: 155px;
+}
+
+.a-1 span {
+	bottom: 10px;
+	left: 220px;
+}
+
+.a-2 span {
+	bottom: 10px;
+	left: 170px;
+}
+
+.a-3 span {
+	bottom: 10px;
+	left: 185px;
+}
+
+.payment span {
+	color: #a4161a;
+	font-size: 1.2rem;
+	font-weight: 700;
+}
+
+.checkboxes span {
+	color: #a4161a;
+	font-size: 1.2rem;
+	font-weight: 700;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+//MEDIA QUERIES
+
+@media (max-width: 600px) {
+	.logo {
+		display: none;
+	}
+
+	.main-container {
+		max-width: 30em;
+	}
+}
+
+@media (max-width: 767px) {
+	.main-container {
+		max-width: 40em;
+	}
+
+	.logo {
+		display: none;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+	.logo {
+		display: none;
+	}
+
+	@media (min-width: 991px) and (max-width: 1200px) {
+		.header {
+			background-image: radial-gradient(circle, rgba(153, 88, 42, 0.54) 0%, rgba(67, 40, 24, 0.83) 87%),
+				url(../img/bg1-big.jpg);
+
+			&__heading {
+				font-size: 8rem;
+			}
+
+			&__text {
+				padding-top: 1em;
+				font-size: 5rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 1201px) {
+	.header {
+		background-image: radial-gradient(circle, rgba(153, 88, 42, 0.54) 0%, rgba(67, 40, 24, 0.83) 87%),
+			url(../img/bg1-big.jpg);
+
+		&__heading {
+			font-size: 8rem;
+		}
+
+		&__text {
+			padding-top: 1em;
+			font-size: 5rem;
+		}
+	}
+}
