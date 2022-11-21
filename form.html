@@ -77,13 +77,13 @@
 
             <div class="ship-component checkboxes">
                 <h2>Choose 2 gifts (optional):</h2>
-                <span id="gift-error">Only two gifts possible.</span>
-                <label for="pack"><input type="checkbox" id="pack" name="gifts"> pack as a gift</label>
-                <label for="postcard"><input type="checkbox" id="postcard" name="gifts">
+                <span id="gift-error"></span>
+                <label for="pack"><input type="checkbox" id="pack" name="gift" class="choices"> pack as a gift</label>
+                <label for="postcard"><input type="checkbox" id="postcard" name="gift" class="choices">
                     add postcard</label>
-                <label for="discount"><input type="checkbox" id="discount" name="gifts">
+                <label for="discount"><input type="checkbox" id="discount" name="gift" class="choices">
                     provide 2% discount to next order</label>
-                <label for="pen"><input type="checkbox" id="pen" name="gifts">
+                <label for="pen"><input type="checkbox" id="pen" name="gift" class="choices">
                     branded pen or pencil</label>
             </div>
             <div id="submit-error"></div>
@@ -107,7 +107,7 @@
         <div class="logo-footer"></div>
     </footer>
 
-    <script src="/js/form.js"></script>
+    <script src="js/form.js"></script>
 
 </body>
 

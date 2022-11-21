@@ -13,8 +13,10 @@ const pen = document.querySelector('#pen')
 const submitBtn = document.querySelector('#submit-button')
 const confirmation = document.querySelector('.order-confirmation')
 const shippingDetails = document.querySelector('#address-details')
-const radioButtons = document.querySelectorAll('input[type="radio"]')
+
 const paymentContener = document.querySelector('.payment')
+
+const checkboxesContener = document.querySelector('.checkboxes')
 
 //error spans
 const nameError = document.querySelector('#name-error')
@@ -45,8 +47,8 @@ function buttonDisabled() {
 	}
 }
 
-firstName.addEventListener('focusout', buttonDisabled)
-firstName.addEventListener('blur', () => nameValidation())
+firstName.addEventListener('focusout', buttonDisabled, false)
+firstName.addEventListener('blur', nameValidation)
 function nameValidation() {
 	let name = firstName.value
 	if (name.length === 0) {
@@ -66,7 +68,7 @@ function nameValidation() {
 }
 
 surname.addEventListener('focusout', buttonDisabled)
-surname.addEventListener('blur', () => surnameValidation())
+surname.addEventListener('blur', surnameValidation)
 function surnameValidation() {
 	let surnameValid = surname.value
 	if (surnameValid.length === 0) {
@@ -86,7 +88,7 @@ function surnameValidation() {
 }
 
 street.addEventListener('focusout', buttonDisabled)
-street.addEventListener('blur', () => streetValidation())
+street.addEventListener('blur', streetValidation)
 function streetValidation() {
 	let streetValid = street.value
 	if (streetValid.length === 0) {
@@ -106,7 +108,7 @@ function streetValidation() {
 }
 
 houseNumber.addEventListener('focusout', buttonDisabled)
-houseNumber.addEventListener('blur', () => houseNumberValidation())
+houseNumber.addEventListener('blur', houseNumberValidation)
 function houseNumberValidation() {
 	let houseNumberValid = houseNumber.value
 	if (houseNumberValid.length === 0) {
@@ -126,7 +128,7 @@ function houseNumberValidation() {
 }
 
 flatNumber.addEventListener('focusout', buttonDisabled)
-flatNumber.addEventListener('blur', () => flatNumberValidation())
+flatNumber.addEventListener('blur', flatNumberValidation)
 function flatNumberValidation() {
 	let flatNumberValid = flatNumber.value
 	if (flatNumberValid.length === 0) {
@@ -144,11 +146,6 @@ function flatNumberValidation() {
 		return true
 	}
 }
-
-// cashPayment.addEventListener('focusout', buttonDisabled)
-// cardPayment.addEventListener('click', buttonDisabled)
-
-
 
 paymentContener.addEventListener('click', cashType)
 paymentContener.addEventListener('click', cardType)
@@ -189,6 +186,39 @@ function paymentType() {
 	}
 }
 
+//checboxes
+// let giftBoxes = document.getElementsByClassName('.choices')
+// const pack123 = document.querySelector('#pack')
+// console.log(pack123)
+
+// let giftBoxes = document.getElementsByName('gifts')
+// giftBoxes = document.getElementsByName('gifts')
+// console.log(giftBoxes)
+
+let checkboxes = document.querySelectorAll('input[type=checkbox][name=gift]')
+let enabledSettings = []
+
+
+checkboxes.forEach(function (checkbox) {
+	checkbox.addEventListener('change', function () {
+		enabledSettings = Array.from(checkboxes)
+			.filter(i => i.checked)
+		console.log(enabledSettings)
+
+		if (enabledSettings.length > 2) {
+			giftError.innerHTML = 'Only two gifts possible.'
+			return false
+		}
+		if (enabledSettings.length <= 2) {
+			giftError.innerHTML = ''
+			return true
+		}
+	})
+})
+
+
+
+////
 
 function validateForm() {
 	submitBtn.addEventListener('click', e => {
