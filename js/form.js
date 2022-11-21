@@ -180,12 +180,12 @@ function cardType() {
 }
 
 function paymentType() {
-	if (cardPayment.checked === true || cashPayment.checked === true) {
-		return true
-	} else {
+	if (cardPayment.checked === false && cashPayment.checked === false) {
 		paymentError.innerHTML = 'Choose one payment type!'
 		console.log('error')
 		return false
+	} else {
+		return true
 	}
 }
 
