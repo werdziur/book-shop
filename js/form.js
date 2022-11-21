@@ -87,6 +87,26 @@ function surnameValidation() {
 	}
 }
 
+date.addEventListener('input', dateValidation)
+
+let dateProvided = date.value
+let today = new Date()
+let dateUser = new Date(dateProvided)
+
+console.log(dateProvided)
+
+function dateValidation() {
+	if (dateUser <= today) {
+		date.style.border = '2px solid #a4161a'
+		dateError.innerHTML = 'Date is invalid.'
+		return false
+	} else {
+		date.style.border = '1px solid green'
+		dateError.innerHTML = ''
+		return true
+	}
+}
+
 street.addEventListener('focusout', buttonDisabled)
 street.addEventListener('blur', streetValidation)
 function streetValidation() {
@@ -187,36 +207,24 @@ function paymentType() {
 }
 
 //checboxes
-// let giftBoxes = document.getElementsByClassName('.choices')
-// const pack123 = document.querySelector('#pack')
-// console.log(pack123)
-
-// let giftBoxes = document.getElementsByName('gifts')
-// giftBoxes = document.getElementsByName('gifts')
-// console.log(giftBoxes)
 
 let checkboxes = document.querySelectorAll('input[type=checkbox][name=gift]')
-let enabledSettings = []
-
+let checkedBoxes = []
 
 checkboxes.forEach(function (checkbox) {
 	checkbox.addEventListener('change', function () {
-		enabledSettings = Array.from(checkboxes)
-			.filter(i => i.checked)
-		console.log(enabledSettings)
+		checkedBoxes = Array.from(checkboxes).filter(i => i.checked)
 
-		if (enabledSettings.length > 2) {
+		if (checkedBoxes.length > 2) {
 			giftError.innerHTML = 'Only two gifts possible.'
 			return false
 		}
-		if (enabledSettings.length <= 2) {
+		if (checkedBoxes.length <= 2) {
 			giftError.innerHTML = ''
 			return true
 		}
 	})
 })
-
-
 
 ////
 

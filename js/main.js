@@ -176,8 +176,6 @@ function appendData(data) {
 			})
 		})
 
-	
-
 		//button more background
 		buttonMoreInfo.classList.add('main-container__button-more', 'description-button')
 		buttonMoreInfo.innerHTML = 'Show more'
@@ -231,7 +229,7 @@ const nav = document.createElement('div')
 nav.classList.add('central-nav')
 const addNavButton = document.createElement('div')
 const imageCart = document.createElement('img')
-imageCart.setAttribute('src', '/img/cart-shopping-solid.svg')
+imageCart.setAttribute('src', 'img/cart-shopping-solid.svg')
 imageCart.setAttribute('alt', 'cart icon')
 addNavButton.appendChild(imageCart)
 addNavButton.classList.add('burger-btn')
@@ -255,12 +253,9 @@ addNav.append(cart, nav)
 function showingCart() {
 	addNavButton.addEventListener('click', () => cart.classList.toggle('cart-show'))
 	cart.addEventListener('mouseleave', () => cart.classList.toggle('cart-show'))
-	
 }
 
 showingCart()
-
-
 
 // header
 
