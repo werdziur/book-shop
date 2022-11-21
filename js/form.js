@@ -87,29 +87,25 @@ function surnameValidation() {
 	}
 }
 
+date.addEventListener('input', dateValidation)
 
-// date.addEventListener('input', dateValidation)
+let dateProvided = date.value
+let today = new Date()
+let dateUser = new Date(dateProvided)
 
-// let dateProvided = date.value
-// let today = new Date();
-// let dateUser = new Date(dateProvided)
+console.log(dateProvided)
 
-// console.log(dateProvided)
-
-// function dateValidation() {
-// 	if (dateUser <= today) {
-// 		date.style.border = '2px solid #a4161a'
-// 		dateError.innerHTML = 'Date is invalid.'
-// 		return false
-// 	} else {
-// 		date.style.border = '1px solid green'
-// 		dateError.innerHTML = ''
-// 		return true
-// 	}
-
-// }
-
-
+function dateValidation() {
+	if (dateUser <= today) {
+		date.style.border = '2px solid #a4161a'
+		dateError.innerHTML = 'Date is invalid.'
+		return false
+	} else {
+		date.style.border = '1px solid green'
+		dateError.innerHTML = ''
+		return true
+	}
+}
 
 street.addEventListener('focusout', buttonDisabled)
 street.addEventListener('blur', streetValidation)
