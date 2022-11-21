@@ -13,6 +13,8 @@ const pen = document.querySelector('#pen')
 const submitBtn = document.querySelector('#submit-button')
 const confirmation = document.querySelector('.order-confirmation')
 const shippingDetails = document.querySelector('#address-details')
+const radioButtons = document.querySelectorAll('input[type="radio"]')
+const paymentContener = document.querySelector('.payment')
 
 //error spans
 const nameError = document.querySelector('#name-error')
@@ -32,7 +34,8 @@ function buttonDisabled() {
 		!nameValidation() ||
 		!streetValidation() ||
 		!houseNumberValidation() ||
-		!flatNumberValidation()
+		!flatNumberValidation() ||
+		!paymentType()
 	) {
 		submitBtn.classList.add('btn-disabled')
 		submitBtn.classList.remove('btn-purchase')
@@ -122,7 +125,7 @@ function houseNumberValidation() {
 	}
 }
 
-flatNumber.addEventListener('mouseout', buttonDisabled)
+flatNumber.addEventListener('focusout', buttonDisabled)
 flatNumber.addEventListener('blur', () => flatNumberValidation())
 function flatNumberValidation() {
 	let flatNumberValid = flatNumber.value
@@ -142,6 +145,51 @@ function flatNumberValidation() {
 	}
 }
 
+// cashPayment.addEventListener('focusout', buttonDisabled)
+// cardPayment.addEventListener('click', buttonDisabled)
+
+
+
+paymentContener.addEventListener('click', cashType)
+paymentContener.addEventListener('click', cardType)
+paymentContener.addEventListener('click', buttonDisabled)
+paymentContener.addEventListener('blur', paymentType)
+
+function cashType() {
+	cashPayment.addEventListener('change', () => {
+		if (cashPayment.checked === false) {
+			return false
+		} else {
+			paymentError.innerHTML = ''
+			console.log('true')
+			return true
+		}
+	})
+}
+
+function cardType() {
+	cardPayment.addEventListener('change', () => {
+		if (cardPayment.checked === false) {
+			return false
+		} else {
+			paymentError.innerHTML = ''
+			console.log('true')
+			return true
+		}
+	})
+}
+
+function paymentType() {
+	if (cardPayment.checked === true || cashPayment.checked === true) {
+		return true
+	} else {
+		paymentError.innerHTML = 'Choose one payment type!'
+		console.log('error')
+		return false
+	}
+}
+
+
 function validateForm() {
 	submitBtn.addEventListener('click', e => {
 		if (
@@ -150,11 +198,11 @@ function validateForm() {
 			!nameValidation() ||
 			!streetValidation() ||
 			!houseNumberValidation() ||
-			!flatNumberValidation()
+			!flatNumberValidation() ||
+			!paymentType()
 		) {
 			submitError.style.display = 'block'
 			submitError.innerHTML = 'Please fill all required fields!'
-
 			setTimeout(function () {
 				submitError.style.display = 'none'
 			}, 3000)
@@ -168,7 +216,3 @@ function validateForm() {
 }
 
 validateForm()
-
-// submitBtn.addEventListener('submit', e => {
-//
-// })
