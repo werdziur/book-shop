@@ -27,6 +27,7 @@ function appendData(data) {
 		const bookImage = document.createElement('img')
 		bookImage.setAttribute('src', data[book].imageLink)
 		bookImage.classList.add('bookImg')
+		bookImage.setAttribute('draggable', 'false')
 		const bookAuthor = document.createElement('p')
 		bookAuthor.innerHTML = `${data[book].author}`
 		bookAuthor.classList.add('author')
@@ -129,6 +130,8 @@ function appendData(data) {
 
 		addToCart()
 
+		//drag and drop functionality
+
 		divBook.addEventListener('dragstart', function (e) {
 			e.dataTransfer.setData('text/plain', e.target.id)
 			e.stopImmediatePropagation()
@@ -153,8 +156,8 @@ function appendData(data) {
 			nodeCopy.classList.remove('main-container__card')
 			cart.classList.remove('drop-zone')
 			nodeCopy.classList.add('div-item')
-			const removeButton = document.createElement('button')
 
+			const removeButton = document.createElement('button')
 			removeButton.classList.add('remove-btn')
 			removeButton.innerText = 'Remove'
 			nodeCopy.appendChild(removeButton)
