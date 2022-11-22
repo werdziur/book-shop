@@ -1,6 +1,6 @@
 const firstName = document.querySelector('#name')
 const surname = document.querySelector('#surname')
-const date = document.querySelector('#date')
+
 const street = document.querySelector('#street')
 const houseNumber = document.querySelector('#hnumber')
 const flatNumber = document.querySelector('#flat-number')
@@ -37,7 +37,8 @@ function buttonDisabled() {
 		!streetValidation() ||
 		!houseNumberValidation() ||
 		!flatNumberValidation() ||
-		!paymentType()
+		!paymentType() ||
+		!dateValidation()
 	) {
 		submitBtn.classList.add('btn-disabled')
 		submitBtn.classList.remove('btn-purchase')
@@ -47,7 +48,7 @@ function buttonDisabled() {
 	}
 }
 
-firstName.addEventListener('focusout', buttonDisabled, false)
+firstName.addEventListener('focusout', buttonDisabled)
 firstName.addEventListener('blur', nameValidation)
 function nameValidation() {
 	let name = firstName.value
@@ -87,25 +88,66 @@ function surnameValidation() {
 	}
 }
 
-date.addEventListener('input', dateValidation)
+//date validation
+
+const date = document.querySelector('#date')
+const today = new Date()
+let dd = today.getDate() + 1
+let mm = today.getMonth() + 1
+let yyyy = today.getFullYear()
+const lastDayDate = new Date(yyyy, mm, 0).getDate()
+
+function maxDate() {
+	if (dd > lastDayDate) {
+		dd = 1
+		mm += 1
+		if (mm === 13) {
+			mm = 1
+			yyyy += 1
+		}
+	}
+	dd = dd < 10 ? '0' + dd : dd
+	mm = mm < 10 ? '0' + mm : mm
+	date.setAttribute('min', `${yyyy}-${mm}-${dd}`)
+}
+
+date.addEventListener('click', maxDate)
 
 let dateProvided = date.value
-let today = new Date()
-let dateUser = new Date(dateProvided)
+let newDateUser
 
-console.log(dateProvided)
+date.addEventListener('focusout', () => {
+	newDateUser = date.value
+})
+date.addEventListener('focusout', buttonDisabled)
+date.addEventListener('blur', dateValidation)
+date.addEventListener('focusout', dateValidation)
 
 function dateValidation() {
-	if (dateUser <= today) {
-		date.style.border = '2px solid #a4161a'
-		dateError.innerHTML = 'Date is invalid.'
-		return false
-	} else {
+	if (newDateUser) {
 		date.style.border = '1px solid green'
 		dateError.innerHTML = ''
 		return true
 	}
+	if (!newDateUser) {
+		dateError.innerHTML = 'Choose delivery date'
+		date.style.border = '2px solid #a4161a'
+		return false
+	}
 }
+
+function maxCheckboxes() {
+	const giftBoxes = document.querySelectorAll('.choices')
+	const giftBoxesArr = [...giftBoxes]
+	giftBoxesArr.forEach(el => {
+		el.addEventListener('change', () => {
+			const length = giftBoxesArr.filter(checkbox => checkbox.checked).length
+			el.checked = !(length > 2) && el.checked
+		})
+	})
+}
+
+maxCheckboxes()
 
 street.addEventListener('focusout', buttonDisabled)
 street.addEventListener('blur', streetValidation)
@@ -117,7 +159,7 @@ function streetValidation() {
 		return false
 	}
 	if (!streetValid.match(/^[0-9a-zA-Z ]+$/)) {
-		streetError.innerHTML = 'Write full street'
+		streetError.innerHTML = 'Write valid street'
 		street.style.border = '2px solid #a4161a'
 		return false
 	} else {
@@ -178,7 +220,6 @@ function cashType() {
 			return false
 		} else {
 			paymentError.innerHTML = ''
-			console.log('true')
 			return true
 		}
 	})
@@ -190,7 +231,6 @@ function cardType() {
 			return false
 		} else {
 			paymentError.innerHTML = ''
-			console.log('true')
 			return true
 		}
 	})
@@ -199,7 +239,6 @@ function cardType() {
 function paymentType() {
 	if (cardPayment.checked === false && cashPayment.checked === false) {
 		paymentError.innerHTML = 'Choose one payment type!'
-		console.log('error')
 		return false
 	} else {
 		return true
@@ -237,7 +276,8 @@ function validateForm() {
 			!streetValidation() ||
 			!houseNumberValidation() ||
 			!flatNumberValidation() ||
-			!paymentType()
+			!paymentType() ||
+			!dateValidation()
 		) {
 			submitError.style.display = 'block'
 			submitError.innerHTML = 'Please fill all required fields!'

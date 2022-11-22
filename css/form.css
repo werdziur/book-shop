@@ -294,11 +294,18 @@ body {
 
 .pi-1 span,
 .pi-2 span,
-.pi-3 span,
 .a-1 span,
 .a-2 span,
 .a-3 span {
   width: 100%;
+  color: #a4161a;
+  font-size: 1.2rem;
+  font-weight: 700;
+  position: absolute;
+}
+
+.pi-3 span {
+  width: 150px;
   color: #a4161a;
   font-size: 1.2rem;
   font-weight: 700;
@@ -321,7 +328,7 @@ i {
 
 .pi-3 span {
   bottom: 10px;
-  left: 155px;
+  left: 140px;
 }
 
 .a-1 span {
