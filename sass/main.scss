@@ -82,6 +82,10 @@ body {
 	box-shadow: 5px 5px 10px rgba(#161a1d, 0.7);
 }
 
+.logo:hover {
+	opacity: .7;
+}
+
 .logo img {
 	width: 8em;
 	height: 100%;
@@ -109,6 +113,12 @@ body {
 	box-shadow: 5px 5px 10px rgba(#161a1d, 0.7);
 }
 
+
+.burger-btn:hover {
+	opacity: .7;
+}
+
+
 .burger-btn img {
 	width: 68px;
 	height: 68px;
@@ -120,7 +130,7 @@ body {
 }
 
 .burger-btn div {
-	font-size: 1.8em;
+	font-size: 1.7em;
 	position: absolute;
 	right: 5px;
 	bottom: 5px;
@@ -132,6 +142,7 @@ body {
 	border-radius: 5px;
 	background-color: #a4161a;
 	color: white;
+	z-index: 1000000000000;
 }
 
 .cart {
@@ -334,7 +345,7 @@ body {
 		cursor: pointer;
 		z-index: 10000;
 		transition: background-color 0.3s;
-		text-shadow: 0.5px 0.5px 3px rgba(0, 0, 0, 0.95);
+		
 
 		&:hover {
 			background-color: #e9e7e7;
@@ -411,9 +422,18 @@ body {
 
 //MEDIA QUERIES
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
+
+	.div-item button {
+		width: 8em;
+		height: 3em;
+		font-size: 1rem;
+		top: 390px;
+		left: 130px;
+	}
 	.header {
 		height: 50em;
+		margin-bottom: 0;
 	}
 
 	.logo {
@@ -433,14 +453,40 @@ body {
 		z-index: 100000000;
 	}
 
+	.cart {
+		font-size: 0.5em;
+		margin-top: 45px;
+	}
+
 	.cart-show {
 		transform: translateX(0);
 	}
 	.main-container {
-		max-width: 30em;
+		max-width: 20em;
+		margin-top: 0;
+
+		&__button-more {
+			width: 8em;
+			height: 3em;
+			font-size: 1.2rem;
+		}
+		&__button-buy {
+			width: 8em;
+			height: 3em;
+			font-size: 1.2rem;
+		}
+		&__card {
+			height: 40em;
+			.bookImg {
+				width: 20em;
+				height: 25em;
+				padding: 2em;
+				padding-bottom: 1em;
+			}
+		}
 	}
 	.background {
-		font-size: 1.2em;
+		font-size: 1em;
 		padding: 2em;
 		padding-top: 1em;
 	}
