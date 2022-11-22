@@ -81,6 +81,11 @@ body {
 	background-color: rgba(246, 240, 234, 1);
 	background-image: linear-gradient(90deg, rgba(246, 240, 234, 1) 0%, rgba(241, 223, 209, 1) 100%);
 	box-shadow: 5px 5px 10px rgba(#161a1d, 0.7);
+	transition: opacity 0.3s;
+}
+
+.logo:hover {
+	opacity: 0.8;
 }
 
 .logo img {
@@ -311,47 +316,42 @@ body {
 	font-size: 1.2rem;
 	font-weight: 700;
 	position: absolute;
-	
+	bottom: 40px;
+	left: 50px;
 }
 
 .pi-3 span {
-	width:150px;
+	width: 150px;
 	color: #a4161a;
 	font-size: 1.2rem;
 	font-weight: 700;
-	position: absolute;}
+	position: absolute;
+	bottom: 40px;
+	left: 50px;
+}
 
 i {
 	color: green;
 }
-.pi-1 span {
-	bottom: 10px;
-	left: 220px;
-}
-
-.pi-2 span {
-	bottom: 10px;
-	left: 205px;
-}
 
 .pi-3 span {
-	bottom: 10px;
-	left: 140px;
+	left: 115px;
 }
 
 .a-1 span {
-	bottom: 10px;
-	left: 220px;
+	left: 70px;
 }
 
 .a-2 span {
-	bottom: 10px;
-	left: 170px;
+	left: 120px;
+	font-size: 0.6em;
+	bottom: 42px;
 }
 
 .a-3 span {
-	bottom: 10px;
-	left: 185px;
+	left: 100px;
+	font-size: 0.6em;
+	bottom: 42px;
 }
 
 .payment span {
@@ -370,49 +370,103 @@ i {
 
 //MEDIA QUERIES
 
-@media (max-width: 600px) {
-	.logo {
+@media (min-width: 200px) and (max-width: 400px) {
+	.order-confirmation {
+		height: 70em;
+		padding: 1em;
+		width: 100%;
+		margin-top: 10px;
+	}
+
+	.order-confirmation img {
 		display: none;
 	}
 
-	.main-container {
-		max-width: 30em;
-	}
-}
-
-@media (max-width: 767px) {
-	.main-container {
-		max-width: 40em;
+	.order-confirmation h2 {
+		font-size: 1.3em;
+		padding: 0;
 	}
 
-	.logo {
-		display: none;
-	}
-}
-
-@media (min-width: 768px) and (max-width: 992px) {
-	.logo {
-		display: none;
+	#address-details {
+		font-size: 1em;
 	}
 
-	@media (min-width: 991px) and (max-width: 1200px) {
-		.header {
-			background-image: radial-gradient(circle, rgba(153, 88, 42, 0.54) 0%, rgba(67, 40, 24, 0.83) 87%),
-				url(../img/bg1-big.jpg);
+	.header {
+		&__heading {
+			font-size: 2em;
+		}
 
-			&__heading {
-				font-size: 8rem;
-			}
-
-			&__text {
-				padding-top: 1em;
-				font-size: 5rem;
-			}
+		&__text {
+			font-size: 1em;
 		}
 	}
+	.logo {
+		display: none;
+	}
+
+	.card {
+		width: 20em;
+	}
+
+	.main-container {
+		max-width: 20em;
+	}
+
+	.main-form {
+		width: 100%;
+		padding: 0;
+	}
+
+	.private-info input,
+	.address input {
+		width: 100%;
+	}
 }
 
-@media (min-width: 1201px) {
+@media (min-width: 400px) and (max-width: 990px) {
+	.main-container {
+		max-width: 60em;
+	}
+
+	.card {
+		width: 50em;
+	}
+
+	.main-container {
+		max-width: 50em;
+	}
+
+	.main-form {
+		width: 100%;
+		padding: 0;
+	}
+
+	.private-info input,
+	.address input {
+		width: 100%;
+	}
+
+	.order-confirmation {
+		height: 70em;
+		padding: 0.5em;
+		width: 100%;
+	}
+
+	.order-confirmation img {
+		display: none;
+	}
+
+	.order-confirmation h2 {
+		font-size: 1.3em;
+		padding: 0;
+	}
+
+	#address-details {
+		font-size: 1em;
+	}
+}
+
+@media (min-width: 991px) and (max-width: 1199px) {
 	.header {
 		background-image: radial-gradient(circle, rgba(153, 88, 42, 0.54) 0%, rgba(67, 40, 24, 0.83) 87%),
 			url(../img/bg1-big.jpg);
@@ -425,5 +479,50 @@ i {
 			padding-top: 1em;
 			font-size: 5rem;
 		}
+	}
+
+	.private-info input,
+	.address input {
+		width: 100%;
+	}
+
+	.a-2 span {
+		left: 130px;
+		font-size: 1.2rem;
+		bottom: 40px;
+	}
+
+	.a-3 span {
+		left: 110px;
+		font-size: 1.2rem;
+		bottom: 40px;
+	}
+}
+
+@media (width > 1201px) {
+	.header {
+		background-image: radial-gradient(circle, rgba(153, 88, 42, 0.54) 0%, rgba(67, 40, 24, 0.83) 87%),
+			url(../img/bg1-big.jpg);
+
+		&__heading {
+			font-size: 8rem;
+		}
+
+		&__text {
+			padding-top: 1em;
+			font-size: 5rem;
+		}
+	}
+
+	.a-2 span {
+		left: 130px;
+		font-size: 1.2rem;
+		bottom: 40px;
+	}
+
+	.a-3 span {
+		left: 110px;
+		font-size: 1.2rem;
+		bottom: 40px;
 	}
 }
