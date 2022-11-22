@@ -134,7 +134,6 @@ function appendData(data) {
 
 		divBook.addEventListener('dragstart', function (e) {
 			e.dataTransfer.setData('text/plain', e.target.id)
-			e.stopImmediatePropagation()
 			cart.classList.add('cart-show')
 		})
 
