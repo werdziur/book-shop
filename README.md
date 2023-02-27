@@ -1,3 +1,7 @@
+The page is deployed on:
+
+https://werdziur.github.io/book-shop/main.html
+
 The main aim of creating a BookShoop website was practicing as many DOM manipulation methods as possible and DOM API 
 (the whole page is created through JS, only basic tags were added via HTML).
 
